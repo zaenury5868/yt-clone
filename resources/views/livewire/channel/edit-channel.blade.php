@@ -1,3 +1,3 @@
 <div>
-    {{ $name }}
+    {{ $channel->name }}
 </div>

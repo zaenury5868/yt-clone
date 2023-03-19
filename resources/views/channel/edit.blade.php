@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @livewire('channel.edit-channel')
+                    @livewire('channel.edit-channel', ['channel' => $channel->name])
                 </div>
             </div>
         </div>
