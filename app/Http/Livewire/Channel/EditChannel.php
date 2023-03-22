@@ -3,9 +3,10 @@
 namespace App\Http\Livewire\Channel;
 
 use App\Models\Channel;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Intervention\Image\Facades\Image;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EditChannel extends Component
 {
@@ -47,11 +48,19 @@ class EditChannel extends Component
         //check file submitted
         if($this->image) {
             //save image
-            $image = $this-> image->storeAs('image', $this->channel->uid . '.png');
+            $image = $this-> image->storeAs('images', $this->channel->uid . '.png');
+            $imageImage = explode('/', $image)[1];
+
+            //resize n convert to png
+            $img = Image::make(\storage_path() . '/app/' . $image)
+                    ->encode('png')
+                    ->fit(80,80, function($constraint) {
+                        $constraint->upsize();
+                    })->save();
 
             //update file path in the db
             $this->channel->update([
-                'image' => $image
+                'image' => $imageImage
             ]);
         }
 
