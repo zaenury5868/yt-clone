@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\ChannelController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Livewire\Video\AllVideo;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Video\EditVideo;
+use App\Http\Livewire\Video\CreateVideo;
+use App\Http\Controllers\ChannelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +28,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware('auth')->group(function() {
     Route::get('/channel/edit/{channel}', [ChannelController::class, 'edit'])->name('channel.edit');
+});
+
+Route::middleware('auth')->group(function() {
+    Route::get('/videos/create/{channel}', CreateVideo::class)->name('video.create');
+    Route::get('/videos/{channel}/{video}/edit', EditVideo::class)->name('video.edit');
+    Route::get('/videos/{channel}', AllVideo::class)->name('video.all');
 });
