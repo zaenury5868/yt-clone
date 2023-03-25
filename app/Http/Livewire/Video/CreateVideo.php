@@ -30,7 +30,7 @@ class CreateVideo extends Component
     public function fileCompleted() {
         $this->validate();
 
-        $path = $this->videoFile->store('videos-tmp');
+        $path = $this->videoFile->store('videos-temp');
 
         $this->video = $this->channel->videos()->create([
             'title' => 'untitled',
