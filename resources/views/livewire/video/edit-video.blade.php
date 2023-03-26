@@ -1,4 +1,4 @@
-<div>
+<div @if ($video->processing_percentage < 100) wire:poll @endif>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -7,7 +7,9 @@
                         <img src="{{ asset($this->video->thumbnail) }}" class="img-thumbnail" alt="">
                     </div>
                     <div class="col-md-8">
-                        <p>Processing ({{ $this->video->processing_percentage }})</p>
+                        @if ($this->video->processing_percentage != 100)
+                            <p>Processing ({{ $this->video->processing_percentage }}%)</p>
+                        @endif
                     </div>
                 </div>
                 <form wire:submit.prevent="update">
