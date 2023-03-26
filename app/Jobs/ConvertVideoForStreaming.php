@@ -6,10 +6,12 @@ use App\Models\Video;
 use FFMpeg\Format\Video\X264;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Support\Facades\Log;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class ConvertVideoForStreaming implements ShouldQueue
@@ -51,9 +53,13 @@ class ConvertVideoForStreaming implements ShouldQueue
             ->toDisk('videos')
             ->save($destination);
 
-            $this->video->update([
-                'processed' => true,
-                'processed_file' => $this->video->uid . '.m3u8',
-            ]);
+        $this->video->update([
+            'processed' => true,
+            'processed_file' => $this->video->uid . '.m3u8',
+        ]);
+        
+        //delete temp video
+        $result = Storage::disk('videos-temp')->delete($this->video->path);
+        Log::info($this->video->path . 'video telah dihapus dari folder videos-temp');
     }
 }

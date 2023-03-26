@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 @empty
-                    <p class="text-danger text-center">Tidak ada video</p>
+                    <h1 class="text-danger text-center">Tidak ada video</h1>
                 @endforelse
             </div>
             {{ $videos->links() }}
