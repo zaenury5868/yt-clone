@@ -38,7 +38,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a href="{{ route('video.all', Auth::user()->channel->name) }}" class="nav-link">Semua Video</a>
+                            @if (Auth::check())
+                                <a href="{{ route('video.all', Auth::user()->channel->name) }}" class="nav-link">Semua Video</a>
+                            @endif
                         </li>
                     </ul>
 

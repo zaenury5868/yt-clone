@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                @foreach ($videos as $video)
+                @forelse ($videos as $video)
                     <div class="card my-2">
                         <div class="card-body">
                             <div class="row">
@@ -21,12 +21,14 @@
                                 </div>
                                 <div class="col-md-2">
                                     <a href="{{ route('video.edit', ['channel' => auth()->user()->channel, 'video' => $video->uid]) }}" class="btn btn-light btn-sm">Edit</a>
-                                    <a class="btn btn-danger btn-sm">Hapus</a>
+                                    <a wire:click.prevent="delete('{{ $video->uid }}')" class="btn btn-danger btn-sm">Hapus</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <p class="text-danger text-center">Tidak ada video</p>
+                @endforelse
             </div>
             {{ $videos->links() }}
         </div>
