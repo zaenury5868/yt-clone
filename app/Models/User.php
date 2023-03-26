@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Video;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -51,5 +52,9 @@ class User extends Authenticatable
     public function channel(): HasOne
     {
         return $this->hasOne(Channel::class);
+    }
+
+    public function owns(Video $video) {
+        return $this->id == $video->channel->user_id;
     }
 }

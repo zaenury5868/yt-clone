@@ -37,11 +37,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            @if (Auth::check())
-                                <a href="{{ route('video.all', Auth::user()->channel->name) }}" class="nav-link">Semua Video</a>
-                            @endif
-                        </li>
+                        @auth
+                            <li class="nav-item">
+                                <a href="{{ route('video.all', auth()->user()->channel) }}" class="nav-link">Semua Video</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
