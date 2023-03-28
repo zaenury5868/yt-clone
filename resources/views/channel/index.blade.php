@@ -31,16 +31,15 @@
                         </a>
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <img src="{{asset('/images/' . $video->channel->image)}}" height="40px" class="rounded circle">
                                 <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
-                                    <h4 class="p-3">{{$video->title}}</h4>
+                                    <h4 class="text-black">{{ Str::words($video->title, 6, '...') }} </h4>
                                 </a>
                             </div>
                             <div class="d-flex mt-4 flex-column">
-                                <p class="text-gray font-weight-bold" style="line-height: 0.2px">
+                                <p class="gray-text font-weight-bold" style="line-height: 0.2px">
                                     {{ $video->channel->name}}
                                 </p>
-                                <p class="text-gray font-weight-bold" style="line-height: 0.2px">{{ $video->views}}x ditonton • {{$video->created_at->diffForHumans()}}</p>
+                                <p class="gray-text font-weight-bold" style="line-height: 0.2px">{{ $video->views}}x ditonton • {{$video->created_at->diffForHumans()}}</p>
                             </div>
                         </div>
                     </div>
