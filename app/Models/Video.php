@@ -53,7 +53,7 @@ class Video extends Model
         return $this->likes()->where('user_id', auth()->id())->exists();
     }
 
-    public function doesUserDisLikedVideo() {
+    public function doesUserDislikedVideo() {
         return $this->dislikes()->where('user_id', auth()->id())->exists();
     }
 }

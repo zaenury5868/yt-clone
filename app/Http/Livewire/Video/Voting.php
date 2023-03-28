@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Video;
 
 use App\Models\Like;
 use App\Models\Video;
+use App\Models\Dislike;
 use Livewire\Component;
 
 class Voting extends Component
@@ -14,8 +15,20 @@ class Voting extends Component
     public $likeActive;
     public $dislikeActive;
 
+    protected $listeners = ['load_values' => '$refresh'];
+
     public function mount(Video $video) {
         $this->video = $video;
+        $this->checkifLiked();
+        $this->checkifDisliked();
+    }
+
+    public function checkifLiked() {
+        $this->video->doesUserLikedVideo() ? $this->likeActive = true : $this->likeActive = false;
+    }
+
+    public function checkifDisliked() {
+        $this->video->doesUserDislikedVideo() ? $this->dislikeActive = true : $this->dislikeActive = false;
     }
 
     public function render()
@@ -35,11 +48,20 @@ class Voting extends Component
             ]);
             $this->likeActive = true;
         }
+        $this->emit('load_values');
     }
 
     public function dislike() {
-        $this->video->dislikes()->create([
-            'user_id' => auth()->id()
-        ]);
+        if($this->video->doesUserDislikedVideo()) {
+            Dislike::where('user_id', auth()->id())->where('video_id', $this->video->id)->delete();
+            $this->dislikeActive = false;
+        } else {
+            $this->video->dislikes()->create([
+                'user_id' => auth()->id()
+            ]);
+            $this->dislikeActive = true;
+        }
+        $this->emit('load_values');
+
     }
 }
