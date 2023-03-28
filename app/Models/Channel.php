@@ -22,6 +22,14 @@ class Channel extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getPictureAttribute() {
+        if($this->image) {
+            return '/images/' . $this->image;
+        } else {
+            return '/images/' . 'default.jpg';
+        }
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -35,5 +43,10 @@ class Channel extends Model
     public function videos(): HasMany
     {
         return $this->hasMany(Video::class);
+    }
+
+    public function subscribers()
+    {
+        return $this->subscriptions->count();
     }
 }

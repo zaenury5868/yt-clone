@@ -5,8 +5,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-0">
-                <div class="video-container">
-                    <video controls autoplay preload="auto" wire:ignore id="yt-video" class="video-js vjs-fill vjs-theme-city vjs-styles=defaults vjs-big-play-centered" data-setup='{}'>
+                <div class="video-container" wire:ignore>
+                    <video controls autoplay preload="auto" id="yt-video" class="video-js vjs-fill vjs-theme-city vjs-styles=defaults vjs-big-play-centered" data-setup='{}' poster="{{ asset('videos/' . $video->uid . '/' . $video->thumbnail_image) }}">
                         <source src="{{ asset('videos/' . $video->uid . '/' . $video->processed_file) }}" type="application/x-mpegURL" />
                         <p class="vjs-no-js">
                             to view this video please enable javascript, and consider upgrading to a web browser that 

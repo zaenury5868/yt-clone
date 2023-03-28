@@ -12,3 +12,7 @@ body {
 .gray-text {
     color: #909090;
 }
+
+.p-10 {
+    padding: 6rem !important;
+}
