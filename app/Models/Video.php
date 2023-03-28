@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Video extends Model
@@ -31,5 +32,20 @@ class Video extends Model
 
     public function channel() {
         return $this->belongsTo(Channel::class);
+    }
+
+    /**
+     * Get all of the comments for the Video
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function dislikes(): HasMany
+    {
+        return $this->hasMany(Dislike::class);
     }
 }
