@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="video-container">
-                    <video controls preload="auto" id="yt-video" class="video-js vjs-fill vjs-styles=defaults vjs-big-play-centered" data-setup="{}">
+                    <video controls autoplay preload="auto" wire:ignore id="yt-video" class="video-js vjs-fill vjs-theme-city vjs-styles=defaults vjs-big-play-centered" data-setup='{}'>
                         <source src="{{ asset('videos/' . $video->uid . '/' . $video->processed_file) }}" type="application/x-mpegURL" />
                         <p class="vjs-no-js">
                             to view this video please enable javascript, and consider upgrading to a web browser that 
@@ -19,5 +19,14 @@
     </div>
     @push('scripts')
         <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+        <script>
+            var player = videojs('yt-video')
+            player.on('timeupdate', function() {
+                if(this.currentTime() > 3) {
+                    this.off('timeupdate')
+                    Livewire.emit('VideoViewed')
+                }
+            })
+        </script>
     @endpush
 </div>
