@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-12">
@@ -33,13 +33,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-
+                        @livewire('channel.channel-info', ['channel' => $video->channel])
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
 
-            </div>
+            </div> --}}
         </div>
     </div>
     @push('scripts')

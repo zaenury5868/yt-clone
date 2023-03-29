@@ -16,3 +16,7 @@ body {
 .p-10 {
     padding: 6rem !important;
 }
+
+.ml-2 {
+    margin-left: 1rem;
+}

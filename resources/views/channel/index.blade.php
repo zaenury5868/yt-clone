@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
-                                    <h4 class="text-black">{{ Str::words($video->title, 6, '...') }} </h4>
+                                    <h4 class="text-black">{{ Str::words($video->title, 4, '...') }} </h4>
                                 </a>
                             </div>
                             <div class="d-flex mt-4 flex-column">
