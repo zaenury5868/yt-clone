@@ -7,8 +7,10 @@ use App\Models\Video;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -56,5 +58,29 @@ class User extends Authenticatable
 
     public function owns(Video $video) {
         return $this->id == $video->channel->user_id;
+    }
+
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subscriptions(): HasMany
+    {
+        return $this->hasMany(Subscription::class);
+    }
+    
+    /**
+     * The roles that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function subscribedChannel(): BelongsToMany
+    {
+        return $this->belongsToMany(Channel::class, 'subscriptions');
+    }
+
+    public function isSubscribedTo(Channel $channel) {
+        return (bool) $this->subscriptions()->where('channel_id', $channel->id)->count();
     }
 }

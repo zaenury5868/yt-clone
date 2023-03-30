@@ -49,4 +49,14 @@ class Channel extends Model
     {
         return $this->subscriptions->count();
     }
+
+    /**
+     * Get all of the comments for the Channel
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subscriptions(): HasMany
+    {
+        return $this->hasMany(Subscription::class);
+    }
 }
