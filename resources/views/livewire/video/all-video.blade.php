@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 @empty
-                    <h1 class="text-danger text-center">Tidak ada video</h1>
+                    <h1 class="text-danger text-center mt-5">Tidak ada video</h1>
                 @endforelse
             </div>
             {{ $videos->links() }}
