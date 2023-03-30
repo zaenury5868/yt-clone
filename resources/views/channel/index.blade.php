@@ -13,7 +13,7 @@
                 <img src="{{ $channel->picture }}" class="rounded-circle" height="130px;" width="130px;">
                 <div class="p-3">
                     <h3>{{$channel->name}}</h3>
-                    {{-- <p>{{ $channel->subscribers() }} Subscribers</p> --}}
+                    <p>{{ $channel->subscribers() }} Subscribers</p>
                 </div>
             </div>
             <div>

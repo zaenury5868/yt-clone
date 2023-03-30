@@ -51,7 +51,7 @@ class Channel extends Model
     }
 
     /**
-     * Get all of the comments for the Channel
+     * Get all of the comments for the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

@@ -75,12 +75,12 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function subscribedChannel(): BelongsToMany
+    public function subscribedChannels(): BelongsToMany
     {
         return $this->belongsToMany(Channel::class, 'subscriptions');
     }
 
     public function isSubscribedTo(Channel $channel) {
-        return (bool) $this->subscriptions()->where('channel_id', $channel->id)->count();
+        return (bool) $this->subscriptions->where('channel_id', $channel->id)->count();
     }
 }
