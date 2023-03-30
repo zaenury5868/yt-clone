@@ -56,4 +56,14 @@ class Video extends Model
     public function doesUserDislikedVideo() {
         return $this->dislikes()->where('user_id', auth()->id())->exists();
     }
+
+    /**
+     * Get all of the comments for the Video
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
