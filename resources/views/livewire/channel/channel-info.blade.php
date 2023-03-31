@@ -1,7 +1,7 @@
 <div class="my-5">
     <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center">
-            <img src="{{ $channel->picture }}" class="rounded-circle" height="130px;" width="130px;">
+            <img src="{{ $channel->picture }}" class="rounded-circle" height="100px;" width="100px;">
             <div class="ml-2">
                 <h4>{{ $channel->name }}</h4>
                 <p class="gray-text">{{ $channel->subscribers() }} subscribers</p>
