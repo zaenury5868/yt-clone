@@ -38,7 +38,12 @@
                     </div>
                 </div>
                 <hr>
-                @livewire('comment.new-comment', ['video' => $video, 'col' => 0, 'key' => $video->id])
+                <h4>{{ $video->AllCommentsCount() }} Komentar</h4>
+                @auth
+                    <div class="my-2">
+                        @livewire('comment.new-comment', ['video' => $video, 'col' => 0, 'key' => $video->id])
+                    </div>
+                @endauth
                 @livewire('comment.all-comments', ['video' => $video])
             </div>
             {{-- <div class="col-md-4">

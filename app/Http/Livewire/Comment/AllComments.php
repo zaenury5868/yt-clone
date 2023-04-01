@@ -8,6 +8,7 @@ use Livewire\Component;
 class AllComments extends Component
 {
     public $video;
+    protected $listeners = ['commentCreated' => '$refresh'];
 
     public function mount(Video $video) {
         $this->video = $video;

@@ -31,5 +31,8 @@ class NewComment extends Component
             'video_id' => $this->video->id,
             'reply_id' => $this->col,
         ]);
+
+        $this->body = "";
+        $this->emit('commentCreated');
     }
 }
