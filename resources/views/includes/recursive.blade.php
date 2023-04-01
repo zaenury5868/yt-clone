@@ -9,7 +9,7 @@
                 </h5>
                 {{ $comment->body }}
                 @if ($comment->replies->count())
-                    <a class="text-capitalize" href="" @click.prevent="open = !open">{{ $comment->replies->count() }} balas komentar</a>
+                    <a class="text-capitalize text-decoration-none" href="" @click.prevent="open = !open">{{ $comment->replies->count() }} balas komentar</a>
                     <div x-show="open">
                         @include('includes.recursive', ['comments' => $comment->replies])
                     </div>
