@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <hr>
-                @livewire('comment.new-comment', ['video' => $video])
+                @livewire('comment.new-comment', ['video' => $video, 'col' => 0, 'key' => $video->id])
                 @livewire('comment.all-comments', ['video' => $video])
             </div>
             {{-- <div class="col-md-4">
