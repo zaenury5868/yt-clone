@@ -81,6 +81,15 @@ body {
     gap: 1rem;
 }
 
+.focus-close {
+    margin-left: 30.5rem !important;
+    border-radius: 50% !important;
+}
+
+.focus-close:hover {
+    background-color: #e9ecef4f !important;
+}
+
 .text-decoration-none {
     color: #909090;
 }

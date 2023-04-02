@@ -5,15 +5,22 @@
     <div class="row my-4">
         <div class="d-flex justify-content-center">
             <div class="col-md-8">
-                <button class="btn text-capitalize fw-semibold">
-                    <i class="material-icons">tune</i>
-                </button>
-                <hr>
                 <div class="space-y">
-                    @foreach ($videos as $video)
+                    @if ($videos->count())
+                        <button class="btn btn-group text-capitalize fw-semibold">
+                            <i class="material-icons">tune</i>
+                            <span style="margin-left: 0.375rem;">filter</span>
+                        </button>
+                        <hr>
+                    @endif
+                    @forelse ($videos as $video)
                         <div class="card border-0" style="background: none;">
                             <div class="row">
-                                <img src="{{ asset($video->thumbnail) }}" alt="" style="height: 100%; width: 333px;">
+                                <div class="col-auto">
+                                    <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
+                                        <img src="{{ asset($video->thumbnail) }}" alt="{{ $video->title }}" style="height: 100%; width: 333px;">
+                                    </a>
+                                </div>
                                 <div class="col">
                                     <div class="row">
                                         <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
@@ -21,15 +28,12 @@
                                         </a>
                                     </div>
                                     <div class="row">
-                                        <p class="gray-text font-weight-bold" style="line-height: 0.2px">
-                                            {{ $video->channel->name}}
-                                        </p>
                                         <p class="gray-text font-weight-bold" style="line-height: 0.2px">{{ $video->views}}x ditonton • {{$video->created_at->diffForHumans()}}</p>
                                     </div>
                                     <div class="row my-3">
                                         <div class="d-flex align-items-center">
-                                            <a href="" class="text-decoration-none">
-                                                <img src="{{ asset('/images/' . $video->channel->image) }}" class="rounded-circle" alt="" width="30" style="margin-right: 8px">
+                                            <a href="{{ route('channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
+                                                <img src="{{ asset('/images/' . $video->channel->image) }}" class="rounded-circle" alt="{{ $video->channel->name }}" width="30" style="margin-right: 8px">
                                                 <span class="gray-text font-weight-bold">
                                                     {{ $video->channel->name }}
                                                 </span>
@@ -46,7 +50,9 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <h1 class="text-danger text-center mt-5">Tidak ada video</h1>
+                    @endforelse
                 </div>
             </div>
         </div>
