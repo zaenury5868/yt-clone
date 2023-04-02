@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Channel;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Video\AllVideo;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,12 @@ use App\Http\Controllers\ChannelController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::check()) {
+        $channels = Auth::user()->subscribedChannels()->with('videos')->get()->pluck('videos');
+    } else {
+        $channels = Channel::get()->pluck('videos');
+    }
+    return view('welcome', compact('channels'));
 });
 
 Auth::routes();
