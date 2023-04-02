@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Video\EditVideo;
 use App\Http\Livewire\Video\WatchVideo;
 use App\Http\Livewire\Video\CreateVideo;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ChannelController;
 
 /*
@@ -44,4 +45,5 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::get('/watch/{video}', WatchVideo::class)->name('video.watch');
+Route::get('/search/', [SearchController::class, 'search'])->name('search');
 Route::get('/channels/{channel}', [ChannelController::class, 'index'])->name('channel.index');
