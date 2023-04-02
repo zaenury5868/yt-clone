@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
     public function search(Request $request) {
-        if($request->input('query')) {
-            $q = $request->input('query');
+        if($request->input('search_query')) {
+            $q = $request->input('search_query');
             $videos = Video::query()->where('title', 'LIKE', "%{$q}%")->orWhere('description', 'LIKE', "%{$q}%")->get();
         } else {
             $videos = [];

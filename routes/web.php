@@ -45,5 +45,5 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::get('/watch/{video}', WatchVideo::class)->name('video.watch');
-Route::get('/search/', [SearchController::class, 'search'])->name('search');
+Route::get('/results/', [SearchController::class, 'search'])->name('search');
 Route::get('/channels/{channel}', [ChannelController::class, 'index'])->name('channel.index');

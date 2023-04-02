@@ -46,7 +46,7 @@
                     <div class="m-auto w-50">
                         <form action="{{ route('search') }}" method="get">
                             <div class="input-group">
-                                <input type="text" name="query" class="form-control form-control-search" placeholder="Telusuri">
+                                <input type="text" name="search_query" class="form-control form-control-search" placeholder="Telusuri">
                                 <button type="submit" class="input-group-text search-btn"><i class="material-icons">search</i></button>
                             </div>
                         </form>
