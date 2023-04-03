@@ -3,8 +3,7 @@
 @section('content')
     <div class="p-10 rounded-lg bg-primary">
         <div class="container">
-            <h1 class="display-4 text-white">{{$channel->name}}</h1>
-            <p class="lead text-white">{{$channel->description}}</p>
+            <h1 class="display-4 text-white">{{ $channel->name }}</h1>
         </div>
     </div>
     <div class="container mt-5">
@@ -12,34 +11,38 @@
             <div class="d-flex align-items-center">
                 <img src="{{ $channel->picture }}" class="rounded-circle" height="130px;" width="130px;">
                 <div class="p-3">
-                    <h3>{{$channel->name}}</h3>
-                    <p>{{ $channel->subscribers() }} Subscribers</p>
+                    <h3>{{ $channel->name }}</h3>
+                    <p>{{ short_number($channel->subscribers()) }} subscriber {{ $channel->videos->count() }} video</p>
+                    <div class="d-flex align-items-center">
+                        <a href="" class="text-decoration-none">
+                            <span>{{ Str::words($channel->description, 20, '...') }}</span>
+                        </a>
+                            <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">chevron_right</i>
+                    </div>
                 </div>
             </div>
             <div>
                 @can('update', $channel)
-                    <a href="{{route('channel.edit', $channel)}}" class="btn btn-primary">Edit Channel</a>
+                    <a href="{{ route('channel.edit', $channel) }}" class="btn btn-primary">Edit Channel</a>
                 @endcan
             </div>
         </div>
+        <hr>
         <div class="row my-5">
             @foreach ($channel->videos as $video)
                 <div class="col-md-3">
-                    <div class="card mb-4" style="border:none;">
-                        <a href="{{ route('video.watch', $video)}}">
-                            <img class="card-img-top" src="{{asset( $video->thumbnail)}}" alt="Card image cap">
+                    <div class="card mb-4" style="border:none; background: none;">
+                        <a href="{{ route('video.watch', $video) }}">
+                            <img class="card-img-top" src="{{ asset( $video->thumbnail) }}" alt="{{ $video->title }}">
                         </a>
-                        <div class="card-body">
+                        <div class="row my-3">
                             <div class="d-flex align-items-center">
                                 <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
-                                    <h4 class="text-black">{{ Str::words($video->title, 4, '...') }} </h4>
+                                    <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 4, '...') }} </span>
                                 </a>
                             </div>
-                            <div class="d-flex mt-4 flex-column">
-                                <p class="gray-text font-weight-bold" style="line-height: 0.2px">
-                                    {{ $video->channel->name}}
-                                </p>
-                                <p class="gray-text font-weight-bold" style="line-height: 0.2px">{{ $video->views}}x ditonton • {{$video->created_at->diffForHumans()}}</p>
+                            <div class="d-flex mt-2 flex-column">
+                                <p class="gray-text font-weight-bold" style="line-height: 0.2px">{{ short_number($video->views) }} x ditonton • {{ $video->created_at->diffForHumans() }}</p>
                             </div>
                         </div>
                     </div>

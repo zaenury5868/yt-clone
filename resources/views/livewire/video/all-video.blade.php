@@ -1,6 +1,6 @@
 <div>
     <div class="container">
-        <div class="row justify-content-center mt-5">
+        <div class="row justify-content-center mt-4">
             <div class="col-md-12">
                 @forelse ($videos as $video)
                     <div class="card my-2">

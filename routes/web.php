@@ -33,6 +33,9 @@ Route::middleware('minim')->group(function(){
         }
         return view('welcome', compact('channels', 'videos'));
     });
+
+    
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Auth::routes();
     
@@ -48,6 +51,6 @@ Route::middleware('minim')->group(function(){
     
     Route::get('/watch/{video}', WatchVideo::class)->name('video.watch');
     Route::get('/results/', [SearchController::class, 'search'])->name('search');
-    Route::get('/channels/{channel}', [ChannelController::class, 'index'])->name('channel.index');
+    Route::get('/@{channel}', [ChannelController::class, 'index'])->name('channel.index');
 });
 

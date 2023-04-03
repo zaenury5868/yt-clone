@@ -23,12 +23,16 @@
                                         <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 4, '...') }} </span>
                                     </a>
                                     <div class="ms-auto">
-                                        <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">more_vert</i>
+                                        <a href="" class="text-decoration-none">
+                                            <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">more_vert</i>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="d-flex mt-3 flex-column">
                                     <p class="d-flex gray-text font-weight-bold align-items-center" style="line-height: 0.2px">
-                                        {{ $video->channel->name }}
+                                        <a href="{{ route('channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
+                                            {{ $video->channel->name }}
+                                        </a>
                                         <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">check_circle</i>
                                     </p>
                                     <p class="gray-text font-weight-bold" style="line-height: 0px">{{ short_number($video->views) }} x ditonton • {{$video->created_at->diffForHumans()}}</p>
