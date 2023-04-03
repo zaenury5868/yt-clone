@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Video;
 use App\Models\Channel;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Video\AllVideo;
@@ -25,10 +26,12 @@ Route::middleware('minim')->group(function(){
     Route::get('/', function () {
         if(Auth::check()) {
             $channels = Auth::user()->subscribedChannels()->with('videos')->get()->pluck('videos');
+            $videos = Video::all();
         } else {
             $channels = Channel::get()->pluck('videos');
+            $videos = Video::all();
         }
-        return view('welcome', compact('channels'));
+        return view('welcome', compact('channels', 'videos'));
     });
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Auth::routes();

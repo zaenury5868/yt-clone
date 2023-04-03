@@ -6,6 +6,7 @@ use App\Models\Like;
 use App\Models\Video;
 use App\Models\Dislike;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Voting extends Component
 {
@@ -39,6 +40,9 @@ class Voting extends Component
     }
 
     public function like() {
+        if(!Auth::check()) {
+            return \redirect('/login');
+        }
         if($this->video->doesUserLikedVideo()) {
             Like::where('user_id', auth()->id())->where('video_id', $this->video->id)->delete();
             $this->likeActive = false;
@@ -53,6 +57,9 @@ class Voting extends Component
     }
 
     public function dislike() {
+        if(!Auth::check()) {
+            return \redirect('/login');
+        }
         if($this->video->doesUserDislikedVideo()) {
             Dislike::where('user_id', auth()->id())->where('video_id', $this->video->id)->delete();
             $this->dislikeActive = false;

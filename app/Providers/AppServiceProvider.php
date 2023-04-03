@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->functionHelper();
     }
 
     /**
@@ -22,5 +22,12 @@ class AppServiceProvider extends ServiceProvider
     {
         config(['app.locale' => 'id']);
 	    Carbon::setLocale('id');
+    }
+
+    protected function functionHelper()
+    {
+        foreach (glob(__DIR__.'/../Helpers/*.php') as $namafile) {
+            require_once $namafile;
+        }
     }
 }

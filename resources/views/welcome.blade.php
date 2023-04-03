@@ -8,22 +8,31 @@
         @endif
         @foreach ($channels as $channelVideos)
             @foreach ($channelVideos as $video)
-                <div class="col-md-3">
-                    <div class="card mb-4" style="border:none;">
+                <div class="col-md-4">
+                    <div class="card mb-4" style="border:none; background: none !important;">
                         <a href="{{ route('video.watch', $video)}}">
                             <img class="card-img-top" src="{{asset( $video->thumbnail)}}" alt="Card image cap">
                         </a>
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
-                                    <h4 class="text-black">{{ Str::words($video->title, 4, '...') }} </h4>
-                                </a>
-                            </div>
-                            <div class="d-flex mt-4 flex-column">
-                                <p class="gray-text font-weight-bold" style="line-height: 0.2px">
-                                    {{ $video->channel->name}}
-                                </p>
-                                <p class="gray-text font-weight-bold" style="line-height: 0.2px">{{ $video->views}}x ditonton • {{$video->created_at->diffForHumans()}}</p>
+                        <div class="d-flex mt-3">
+                            <a href="{{ route('channel.index', ['channel' => $video->channel->name]) }}" style="margin-right: 1rem;">
+                                <img src="{{ asset('/images/' . $video->channel->image) }}" class="rounded-circle" height="40" width="40">
+                            </a>
+                            <div class="row">
+                                <div class="d-flex">
+                                    <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
+                                        <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 4, '...') }} </span>
+                                    </a>
+                                    <div class="ms-auto">
+                                        <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">more_vert</i>
+                                    </div>
+                                </div>
+                                <div class="d-flex mt-3 flex-column">
+                                    <p class="d-flex gray-text font-weight-bold align-items-center" style="line-height: 0.2px">
+                                        {{ $video->channel->name }}
+                                        <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">check_circle</i>
+                                    </p>
+                                    <p class="gray-text font-weight-bold" style="line-height: 0px">{{ short_number($video->views) }} x ditonton • {{$video->created_at->diffForHumans()}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
