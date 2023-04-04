@@ -73,16 +73,20 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    <img src="{{ auth()->user()->channel->picture }}" class="avatar avatar-md rounded-circle" height="30" width="30">
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a href="{{ route('channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item text-capitalize">
-                                        channel anda
+                                    <a href="{{ route('channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item text-capitalize d-flex align-items-center">
+                                        <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">account_box</div>channel anda
                                     </a>
-                                    <a href="{{ route('subscription') }}" class="dropdown-item text-capitalize">subscription</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <a href="{{ route('subscription') }}" class="dropdown-item text-capitalize d-flex align-items-center">
+                                        <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">subscriptions</div>subscription
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">input</div> {{ __('Logout') }}
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">mode_night light_mode</div> gelap
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

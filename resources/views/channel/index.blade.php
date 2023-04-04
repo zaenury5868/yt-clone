@@ -36,7 +36,7 @@
                     <div class="card mb-4" style="border:none; background: none;">
                         <a href="{{ route('video.watch', $video) }}">
                             <div class="position-relative">
-                                <img src="{{ asset($video->thumbnail) }}" alt="{{ $video->title }}" style="height: 100%; width: 333px;">
+                                <img class="img-fluid" src="{{ asset($video->thumbnail) }}" alt="{{ $video->title }}" style="height: 100%; width: 333px; border-radius: 0.75rem;">
                                 <div class="badge bg-secondary position-absolute" style="bottom: 8px; right: 16px;">
                                     {{ $video->duration }}
                                 </div>
@@ -45,7 +45,7 @@
                         <div class="row my-3">
                             <div class="d-flex align-items-center">
                                 <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
-                                    <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 4, '...') }} </span>
+                                    <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 6, '...') }} </span>
                                 </a>
                             </div>
                             <div class="d-flex mt-2 flex-column">

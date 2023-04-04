@@ -24,7 +24,7 @@ use App\Http\Controllers\ChannelController;
 
 Route::middleware('minim')->group(function(){ 
     Route::get('/', function () {
-        $videos = Video::where('visibility', '!=','private')->get();
+        $videos = Video::where('visibility', '!=','private')->orderBy('created_at', 'DESC')->get();
         return view('welcome', compact('videos'));
     });
 

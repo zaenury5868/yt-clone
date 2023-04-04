@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('channel_id');
-            $table->string('title');
+            $table->text('title');
             $table->text('description')->nullable();
             $table->string('duration')->nullable();
             $table->integer('views')->default(0);

@@ -23,7 +23,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h3 class="mt-4">{{ $video->title }}</h3>
-                                <p class="gray-text">{{ $video->views }}x ditonton • {{ Carbon\Carbon::parse($video->uploaded_date)->translatedFormat('d F Y') }} </p>
+                                <p class="gray-text">{{ $video->views }} x ditonton • {{ Carbon\Carbon::parse($video->uploaded_date)->translatedFormat('d F Y') }} </p>
                             </div>
                             <div>
                                 @livewire('video.voting', ['video' => $video])

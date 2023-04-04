@@ -3,6 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row my-4">
+        @if (!$videos->count())
+            <h1 class="text-danger text-center mt-4">Tidak ada video</h1>
+        @endif
         @foreach ($videos as $video)
             <div class="col-md-4">
                 <div class="card mb-4" style="border:none; background: none !important;">
@@ -14,7 +17,7 @@
                         <div class="row">
                             <div class="d-flex">
                                 <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
-                                    <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 4, '...') }} </span>
+                                    <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 6, '...') }} </span>
                                 </a>
                                 <div class="ms-auto">
                                     <a href="" class="text-decoration-none">
