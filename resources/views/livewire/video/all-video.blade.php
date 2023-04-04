@@ -7,7 +7,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <a href="{{ route('video.watch', $video) }}">
+                                    <a href="{{ route('video.watch', ['v' => $video]) }}">
                                         <div class="position-relative">
                                             <img src="{{ asset($video->thumbnail) }}" class="img-thumbnail" alt="{{ $video->title }}">
                                             <div class="badge bg-secondary position-absolute" style="bottom: 8px; right: 16px;">

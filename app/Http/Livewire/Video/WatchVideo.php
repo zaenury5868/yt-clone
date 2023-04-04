@@ -4,19 +4,19 @@ namespace App\Http\Livewire\Video;
 
 use App\Models\Video;
 use Livewire\Component;
+use Illuminate\Http\Request;
 
 class WatchVideo extends Component
 {
-    public $video;
+    public $v;
     protected $listeners = ['VideoViewed' => 'countView'];
-
-    public function mount(Video $video) {
-        $this->video = $video;
-    }
+    protected $queryString = ['v'];
 
     public function render()
     {
-        return view('livewire.video.watch-video')->extends('layouts.app');
+        return view('livewire.video.watch-video', [
+            'video' => Video::where('uid', 'like', '%'.$this->v.'%')->first()
+        ])->extends('layouts.app');
     }
 
     public function countView() {

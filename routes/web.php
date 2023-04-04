@@ -52,7 +52,7 @@ Route::middleware('minim')->group(function(){
         Route::get('/videos/{channel}', AllVideo::class)->name('video.all');
     });
     
-    Route::get('/watch/{video}', WatchVideo::class)->name('video.watch');
+    Route::get('/watch', WatchVideo::class)->name('video.watch');
     Route::get('/results/', [SearchController::class, 'search'])->name('search');
     Route::get('/@{channel}', [ChannelController::class, 'index'])->name('channel.index');
 });

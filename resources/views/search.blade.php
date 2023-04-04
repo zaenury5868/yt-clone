@@ -17,7 +17,7 @@
                         <div class="card border-0" style="background: none;">
                             <div class="row">
                                 <div class="col-auto">
-                                    <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
+                                    <a href="{{ route('video.watch', ['v' => $video])}}" class="text-decoration-none">
                                         <div class="position-relative">
                                             <img src="{{ asset($video->thumbnail) }}" alt="{{ $video->title }}" style="height: 100%; width: 333px;">
                                             <div class="badge bg-secondary position-absolute" style="bottom: 8px; right: 16px;">
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="row">
-                                        <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
+                                        <a href="{{ route('video.watch', ['v' => $video])}}" class="text-decoration-none">
                                             <h4 class="text-black">{{ $video->title }} </h4>
                                         </a>
                                     </div>
@@ -46,7 +46,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
+                                        <a href="{{ route('video.watch', ['v' => $video])}}" class="text-decoration-none">
                                             <p class="text-truncate">
                                                 {{ Str::words($video->description, 8, '...') }}
                                             </p>

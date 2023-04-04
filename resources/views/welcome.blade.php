@@ -1,10 +1,20 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row my-4">
         @if (!$videos->count())
             <h1 class="text-danger text-center mt-4">Tidak ada video</h1>
+        @else
+            <div class="row justify-content-center">
+                <div class="items d-flex mb-4 w-50" style="gap: 20px; overflow-x: scroll; overflow-y: hidden;">
+                    <button class="btn text-capitalize btn-secondary">semua</button>
+                    <button class="btn text-capitalize btn-secondary">programming</button>
+                    <button class="btn text-capitalize btn-secondary">musik</button>
+                    <button class="btn text-capitalize btn-secondary">tips</button>
+                    <button class="btn text-capitalize btn-secondary">baru diupload</button>
+                    <button class="btn text-capitalize btn-secondary">ditonton</button>
+                </div>
+            </div>
         @endif
         @foreach ($videos as $video)
             <div class="col-md-4">
@@ -16,7 +26,7 @@
                         </a>
                         <div class="row">
                             <div class="d-flex">
-                                <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
+                                <a href="{{ route('video.watch', ['v' => $video])}}" class="text-decoration-none">
                                     <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 6, '...') }} </span>
                                 </a>
                                 <div class="ms-auto">
