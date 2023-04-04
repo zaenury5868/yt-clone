@@ -18,7 +18,12 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <a href="{{ route('video.watch', $video)}}" class="text-decoration-none">
-                                        <img src="{{ asset($video->thumbnail) }}" alt="{{ $video->title }}" style="height: 100%; width: 333px;">
+                                        <div class="position-relative">
+                                            <img src="{{ asset($video->thumbnail) }}" alt="{{ $video->title }}" style="height: 100%; width: 333px;">
+                                            <div class="badge bg-secondary position-absolute" style="bottom: 8px; right: 16px;">
+                                                {{ $video->duration }}
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
                                 <div class="col">

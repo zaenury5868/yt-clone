@@ -24,15 +24,18 @@ use App\Http\Controllers\ChannelController;
 
 Route::middleware('minim')->group(function(){ 
     Route::get('/', function () {
+        $videos = Video::where('visibility', '!=','private')->get();
+        return view('welcome', compact('videos'));
+    });
+
+    Route::get('/feed/subscriptions', function () {
         if(Auth::check()) {
             $channels = Auth::user()->subscribedChannels()->with('videos')->get()->pluck('videos');
-            $videos = Video::all();
         } else {
             $channels = Channel::get()->pluck('videos');
-            $videos = Video::all();
         }
-        return view('welcome', compact('channels', 'videos'));
-    });
+        return view('subscriber.subscription', compact('channels'));
+    })->name('subscription');
 
     
 

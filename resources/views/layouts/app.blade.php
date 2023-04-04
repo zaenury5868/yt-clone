@@ -80,7 +80,7 @@
                                     <a href="{{ route('channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item text-capitalize">
                                         channel anda
                                     </a>
-                                    <a href="" class="dropdown-item text-capitalize">subscription</a>
+                                    <a href="{{ route('subscription') }}" class="dropdown-item text-capitalize">subscription</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>

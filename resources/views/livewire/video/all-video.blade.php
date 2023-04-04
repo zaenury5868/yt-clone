@@ -8,10 +8,15 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <a href="{{ route('video.watch', $video) }}">
-                                        <img src="{{ asset($video->thumbnail) }}" class="img-thumbnail" alt="">
+                                        <div class="position-relative">
+                                            <img src="{{ asset($video->thumbnail) }}" class="img-thumbnail" alt="{{ $video->title }}">
+                                            <div class="badge bg-secondary position-absolute" style="bottom: 8px; right: 16px;">
+                                                {{ $video->duration }}
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <h5>{{ $video->title }}</h5>
                                     <p class="text-truncate">{{ $video->description }}</p>
                                 </div>

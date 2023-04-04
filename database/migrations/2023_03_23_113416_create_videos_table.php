@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('channel_id');
             $table->string('title');
             $table->text('description')->nullable();
+            $table->string('duration')->nullable();
             $table->integer('views')->default(0);
             $table->string('uid');
             $table->text('path')->nullable();
