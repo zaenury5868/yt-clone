@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Video;
 use App\Models\Channel;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Video\AllVideo;
@@ -24,8 +23,7 @@ use App\Http\Controllers\ChannelController;
 
 Route::middleware('minim')->group(function(){ 
     Route::get('/', function () {
-        $videos = Video::where('visibility', '!=','private')->orderBy('created_at', 'DESC')->get();
-        return view('welcome', compact('videos'));
+        return view('welcome');
     });
 
     Route::get('/feed/subscriptions', function () {
