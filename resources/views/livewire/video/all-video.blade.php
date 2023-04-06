@@ -39,7 +39,7 @@
                     <h1 class="text-danger text-center mt-5">Tidak ada video</h1>
                 @endforelse
             </div>
-            {{ $videos->links() }}
+            {{ $videos->onEachSide(1)->links() }}
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div wire:init="loadCardData">
-    <div class="row my-4">
-        {{-- @if (!$videos->count())
+    <div class="row my-4" wire:loading.delay.class="opacity-50">
+        @if (!$totalRecords)
             <h1 class="text-danger text-center mt-4">Tidak ada video</h1>
         @else
             <div class="row justify-content-center">
@@ -13,10 +13,10 @@
                     <button class="btn text-capitalize btn-secondary">ditonton</button>
                 </div>
             </div>
-        @endif --}}
+        @endif
         @isset($videos)
             @foreach ($videos as $video)
-                <div class="col-md-4">
+                <div @if($loop->last) id="last_record" @endif class="col-md-4">
                     <div class="card mb-4" style="border:none; background: none !important;">
                         @include('includes.videoThumbnail')
                         <div class="d-flex mt-3">
@@ -48,8 +48,28 @@
                     </div>
                 </div>
             @endforeach
+            {{-- @if($videos->hasMorePages())
+                <button wire:click.prevent="loadMore">Load more</button>
+            @endif --}}
+            <script>
+                const lastRecord = document.getElementById('last_record')
+                const options = {
+                    root: null,
+                    threshold: 1,
+                    rootMargin: '0px'
+                }
+
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if(entry.isIntersecting) {
+                            @this.loadMore()
+                        }
+                    })
+                })
+                observer.observe(lastRecord)
+            </script>
         @else
-            <h1 class="text-danger text-center mt-4 text-capitalize">loading..</h1>
+            <h1 class="text-danger text-center mt-4 text-capitalize">loading...</h1>
         @endisset
     </div>
 </div>
