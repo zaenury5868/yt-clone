@@ -1,5 +1,5 @@
 <div wire:init="loadCardData">
-    <div class="row my-4" wire:loading.delay.class="opacity-50">
+    <div class="row my-4">
         @if (!$totalRecords)
             <h1 class="text-danger text-center mt-4">Tidak ada video</h1>
         @else
@@ -25,13 +25,13 @@
                             </a>
                             <div class="row">
                                 <div class="d-flex">
-                                    <a href="{{ route('video.watch', ['v' => $video])}}" class="text-decoration-none">
+                                    <a href="{{ route('video.watch', ['v' => $video]) }}" class="text-decoration-none">
                                         <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 6, '...') }} </span>
                                     </a>
                                     <div class="ms-auto">
-                                        <a href="" class="text-decoration-none">
+                                        <button class="text-decoration-none btn" wire:click.prevent="detailVideo({{ $video->id }})">
                                             <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">more_vert</i>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="d-flex mt-3 flex-column">
@@ -44,6 +44,23 @@
                                     <p class="gray-text font-weight-bold" style="line-height: 0px">{{ short_number($video->views) }} x ditonton • {{$video->created_at->diffForHumans()}}</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="id01" class="w3-modal">
+                    <div class="w3-modal-content" style="border-radius: 1rem">
+                        <header class="w3-container py-4"> 
+                            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                            <span class="text-capitalize fw-semibold">bagikan</span>
+                        </header>
+                        <div class="w3-container">
+                            <div class="input-group tool-text"> 
+                                <input type="text" id="copy" class="form-control p-2" wire:model="uid">
+                                <button type="submit" class="input-group-text search-btn text-capitalize" onclick="copyLink()" onmouseout="outFunc()">
+                                    <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                                    salin</button> 
+                            </div>
+                            <hr class="pt-4">
                         </div>
                     </div>
                 </div>
