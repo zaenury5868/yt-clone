@@ -24,7 +24,7 @@
                                     {{ $video->visibility }}
                                 </div>
                                 <div class="col-md-2">
-                                    {{ $video->created_at->format('d/m/Y') }}
+                                    {{ $video->created_at->format('d/M/Y - H:i A') }}
                                 </div>
                                 @if (auth()->user()->owns($video))
                                     <div class="col-md-2">

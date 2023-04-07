@@ -23,7 +23,7 @@ class AllVideo extends Component
     public function render()
     {
         return view('livewire.video.all-video')
-        ->with('videos', $this->channel->videos()->paginate(5))
+        ->with('videos', $this->channel->videos()->orderBy('created_at', 'DESC')->paginate(5))
         ->extends('layouts.app');
     }
 
