@@ -14,8 +14,8 @@ class minWords implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if(count(explode(' ', $value)) < 2) {
-            $fail('Minimal judul 2 kata');
+        if(count(explode(' ', $value)) < 4) {
+            $fail('Minimal judul 4 kata');
         }
     }
 }

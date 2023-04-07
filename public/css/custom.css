@@ -158,7 +158,72 @@ body {
     border-color: #555 transparent transparent transparent;
 }
 
-  .tool-text:hover .tooltiptext {
+.tool-text:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+#social-links {
+    margin: 0 auto;
+}
+#social-links ul li {
+    display: inline-block;
+}
+
+.social-media {
+    transition: .5s;
+    transition-delay: 0s;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.social-media-btn{
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    line-height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.social-media-btn:nth-child(1){
+    background: #1877F2;
+    color: white;
+}
+
+.social-media-btn:nth-child(2){
+    background: #1DA1F2;
+    color: white;
+}
+
+.social-media-btn:nth-child(3){
+    background: #0A66C2;
+    color: white;
+}
+
+.social-media-btn:nth-child(4){
+    background: #FF4500;
+    color: white;
+}
+
+.social-media-btn:nth-child(5){
+    background: #888888;
+    color: white;
+}
+
+.social-media-btn:nth-child(6){
+    background: #E60023;
+    color: white;
+}
+.social-media-btn:nth-child(7){
+    background: #25D366;
+    color: white;
 }

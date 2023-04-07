@@ -24,15 +24,13 @@
                                 <img src="{{ $video->channel->picture }}" class="rounded-circle" height="40" width="40">
                             </a>
                             <div class="row">
-                                <div class="d-flex">
+                                <div class="d-flex justify-content-between">
                                     <a href="{{ route('video.watch', ['v' => $video]) }}" class="text-decoration-none">
                                         <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">{{ Str::words($video->title, 6, '...') }} </span>
                                     </a>
-                                    <div class="ms-auto">
                                         <button class="text-decoration-none btn" wire:click.prevent="detailVideo({{ $video->id }})">
                                             <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">more_vert</i>
                                         </button>
-                                    </div>
                                 </div>
                                 <div class="d-flex mt-3 flex-column">
                                     <p class="d-flex gray-text font-weight-bold align-items-center" style="line-height: 0.2px">
@@ -47,13 +45,25 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
                 <div id="id01" class="w3-modal">
                     <div class="w3-modal-content" style="border-radius: 1rem">
-                        <header class="w3-container py-4"> 
+                        <header class="w3-container pt-4"> 
                             <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                             <span class="text-capitalize fw-semibold">bagikan</span>
                         </header>
-                        <div class="w3-container">
+                        <div class="w3-container m-auto">
+                            <div class="d-flex justify-content-center">
+                                <div class="social-media">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ $uid }}" class="social-media-btn" target="__blank"><i class="fa fa-facebook-official"></i></a>
+                                    <a href="https://twitter.com/share?&url={{ $uid }}&text={{ $title }}" class="social-media-btn" target="__blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $uid }}" class="social-media-btn" target="__blank"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://www.reddit.com/submit?url={{ $uid }}&title={{ $title }}" class="social-media-btn" target="__blank"><i class="fa fa-reddit"></i></a>
+                                    <a href="mailto:?subject={{ $title }}&amp;body={{ $uid }}" class="social-media-btn" target="__blank"><i class="fa fa-envelope"></i></a>
+                                    <a href="https://pinterest.com/pin/create/button/?url={{ $uid }}&media={{ $video->channel->picture }}&description={{ $description }}" class="social-media-btn" target="__blank"><i class="fa fa-pinterest"></i></a>
+                                    <a href="https://wa.me/?text={{ $uid }}" class="social-media-btn" target="__blank"><i class="fa fa-whatsapp"></i></a>
+                                </div>
+                            </div>
                             <div class="input-group tool-text"> 
                                 <input type="text" id="copy" class="form-control p-2" wire:model="uid">
                                 <button type="submit" class="input-group-text search-btn text-capitalize" onclick="copyLink()" onmouseout="outFunc()">
@@ -64,7 +74,6 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
             {{-- @if($videos->hasMorePages())
                 <button wire:click.prevent="loadMore">Load more</button>
             @endif --}}
