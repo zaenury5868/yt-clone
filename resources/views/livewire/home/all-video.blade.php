@@ -95,7 +95,25 @@
                 observer.observe(lastRecord)
             </script>
         @else
-            <h1 class="text-danger text-center mt-4 text-capitalize">loading...</h1>
+            @for ($i = 0; $i < 6; $i++)
+                <div class="col-md-4">
+                    <div class="card mb-4" style="border:none; background: none !important;">
+                        <div class="position-relative skeleton">
+                            <img class="img-fluid" style="border-radius: 0.75rem; height: 200px;">
+                        </div>
+                        <div class="d-flex mt-3">
+                            <img class="rounded-circle skeleton" height="40" width="40" style="margin-right: 1rem;">
+                            <div class="row">
+                                <div class="d-flex justify-content-between skeleton skeleton-text"></div>
+                                <div class="d-flex mt-3 flex-column">
+                                    <p class="d-flex gray-text font-weight-bold align-items-center skeleton skeleton-text" style="line-height: 0.2px"></p>
+                                    <p class="gray-text font-weight-bold skeleton skeleton-text" style="line-height: 0px"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endfor
         @endisset
     </div>
 </div>
