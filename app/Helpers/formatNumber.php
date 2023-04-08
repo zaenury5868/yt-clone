@@ -5,16 +5,16 @@
             $simbol = '';
         } else if ($n < 900000) {
             $format_angka = number_format($n / 1000, $presisi);
-            $simbol = 'rb';
+            $simbol = ' rb';
         } else if ($n < 900000000) {
             $format_angka = number_format($n / 1000000, $presisi);
-            $simbol = 'jt';
+            $simbol = ' jt';
         } else if ($n < 900000000000) {
             $format_angka = number_format($n / 1000000000, $presisi);
-            $simbol = 'M';
+            $simbol = ' M';
         } else {
             $format_angka = number_format($n / 1000000000000, $presisi);
-            $simbol = 'T';
+            $simbol = ' T';
         }
 
         if ( $presisi > 0 ) {

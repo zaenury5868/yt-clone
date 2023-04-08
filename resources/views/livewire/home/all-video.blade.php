@@ -39,7 +39,7 @@
                                         </a>
                                         <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">check_circle</i>
                                     </p>
-                                    <p class="gray-text font-weight-bold" style="line-height: 0px">{{ short_number($video->views) }} x ditonton • {{$video->created_at->diffForHumans()}}</p>
+                                    <p class="gray-text font-weight-bold" style="line-height: 0px">{{ short_number($video->views) }} x ditonton • {{ $video->created_at->diffForHumans() }}</p>
                                 </div>
                             </div>
                         </div>

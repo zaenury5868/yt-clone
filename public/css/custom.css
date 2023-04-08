@@ -259,3 +259,7 @@ body {
         background-color: hsl(200, 20%, 90%);
     }
 }
+
+.text-upperfirst::first-letter {
+    text-transform: uppercase;
+}

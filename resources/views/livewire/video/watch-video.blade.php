@@ -20,36 +20,53 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center">
                             <div>
                                 <h3 class="mt-4">{{ $video->title }}</h3>
-                                <p class="gray-text">{{ $video->views }} x ditonton • {{ Carbon\Carbon::parse($video->uploaded_date)->translatedFormat('d F Y') }} </p>
                             </div>
-                            <div>
-                                @livewire('video.voting', ['video' => $video])
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="me-auto">
+                            <div class="d-flex align-items-center gap-4">
+                                <img src="{{ $video->channel->picture }}" class="rounded-circle" height="50" width="50">
+                                <a href="{{ route('channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
+                                    <div>
+                                        <h4>{{ $video->channel->name }}</h4>
+                                        <p class="gray-text">{{ short_number($video->channel->subscribers()) }} subscriber</p>
+                                    </div>
+                                </a>
+                        @livewire('channel.channel-info', ['channel' => $video->channel])
+                                
+                            </div>
+                        </div>
+                        <div class="ms-auto">
+                            @livewire('video.voting', ['video' => $video])
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-md-12">
+                        <div class="card border-0" style="background: #f1f1f1">
+                            <div class="card-body">
+                                <p class="gray-text fw-bold">{{ short_number($video->views) }} x ditonton {{ $video->created_at->diffForHumans() }} </p>
+                                <p class="gray-text">{{ $video->description }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-12">
-                        @livewire('channel.channel-info', ['channel' => $video->channel])
-                    </div>
-                </div>
-                <hr>
                 <div class="d-flex gap-4">
                     <h4>{{ $video->AllCommentsCount() }} Komentar</h4>
                     <div class="dropdown">
-                        <a class="d-flex align-items-center gap-2 dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a class="d-flex align-items-center gap-2 text-decoration-none" href="javascript:void(0)" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <div class="material-icons">sort</div>
                             <span class="text-capitalize fw-semibold">urutkan</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a href="javascript:void(0)" wire.click.prevent="topComments" class="dropdown-item text-capitalize">
+                            <a href="javascript:void(0)" wire.click.prevent="topComments" class="dropdown-item text-upperfirst">
                                 komentar teratas
                             </a>
-                            <a href="javascript:void(0)" wire.click.prevent="latestComments" class="dropdown-item text-capitalize">
+                            <a href="javascript:void(0)" wire.click.prevent="latestComments" class="dropdown-item text-upperfirst">
                                 terbaru dulu
                             </a>
                         </div>
@@ -76,6 +93,11 @@
                     this.off('timeupdate')
                     Livewire.emit('VideoViewed')
                 }
+            })
+
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
             })
         </script>
     @endpush

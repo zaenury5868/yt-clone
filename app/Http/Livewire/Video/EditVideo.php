@@ -14,7 +14,7 @@ class EditVideo extends Component
     public $videoFile;
 
     protected $rules = [
-        'video.title' => 'required|min:100',
+        'video.title' => 'required|max:100',
         'video.description' => 'nullable|max:1000',
         'video.visibility' => 'required|in:private,public,unlisted'
     ];
