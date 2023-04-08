@@ -38,7 +38,23 @@
                     </div>
                 </div>
                 <hr>
-                <h4>{{ $video->AllCommentsCount() }} Komentar</h4>
+                <div class="d-flex gap-4">
+                    <h4>{{ $video->AllCommentsCount() }} Komentar</h4>
+                    <div class="dropdown">
+                        <a class="d-flex align-items-center gap-2 dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <div class="material-icons">sort</div>
+                            <span class="text-capitalize fw-semibold">urutkan</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a href="javascript:void(0)" wire.click.prevent="topComments" class="dropdown-item text-capitalize">
+                                komentar teratas
+                            </a>
+                            <a href="javascript:void(0)" wire.click.prevent="latestComments" class="dropdown-item text-capitalize">
+                                terbaru dulu
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 @auth
                     <div class="my-2">
                         @livewire('comment.new-comment', ['video' => $video, 'col' => 0, 'key' => $video->id])
