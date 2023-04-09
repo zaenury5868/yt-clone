@@ -6,6 +6,7 @@ use App\Models\Video;
 use App\Models\Channel;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
@@ -22,6 +23,7 @@ class AllVideo extends Component
 
     public function render()
     {
+        // dd(Route::current()->getName());
         return view('livewire.video.all-video')
         ->with('videos', $this->channel->videos()->orderBy('created_at', 'DESC')->paginate(5))
         ->extends('layouts.app');

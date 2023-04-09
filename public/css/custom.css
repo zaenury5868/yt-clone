@@ -283,6 +283,14 @@ body {
     color: #000 !important;
 }
 
+.border-sm {
+    border-radius: .75rem !important;
+}
+
+.mr-2 {
+    margin-right: 1rem;
+}
+
 .text-upperfirst::first-letter {
     text-transform: uppercase;
 }
@@ -290,6 +298,16 @@ body {
 .max-h-500 {
     max-height: 100%;
     overflow-x: scroll;
+}
+
+.sb-active {
+    background-color: #f1f1f1;
+    border-radius: .75rem;
+    padding: .3rem;
+}
+
+.sb-active .material-icons {
+    color: red;
 }
 
 .gap-3-half {

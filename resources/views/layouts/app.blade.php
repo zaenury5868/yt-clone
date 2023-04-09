@@ -75,17 +75,52 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <div class="nav-link" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <span class="material-icons position-relative">notifications</span>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="width: 600px; border-radius: 0.75rem;">
+                                    <div class="dropdown-item text-decoration-none d-flex align-items-center gap-3">
+                                        <span class="text-upperfirst text-black-50 fw-semibold">notifikasi</span>
+                                    </div>
+                                    <hr>
+                                    <div class="dropdown-item text-decoration-none my-2">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <a href="" class="text-decoration-none">
+                                                <div class="d-flex gap-3">
+                                                    <img src="{{ auth()->user()->channel->picture }}" class="rounded-circle" height="50" width="50">
+                                                    <div class="d-flex flex-column">
+                                                        <p class="text-upperfirst fw-semibold h6 text-bold" data-bs-toggle="tooltip" title="dfghfgh">pancen mengupload : {{ Str::words('What is Kali Linux | Kali Linux Hacking Kali Linux Hacking Kali Linux Hacking Kali Linux Hacking', 10, '...') }}</p>
+                                                        <small class="text-upperfirst fw-semibold text-black-50">1 menit lalu</small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="" class="text-decoration-none">
+                                                <span class="material-icons text-black-50">more_vert</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <img src="{{ auth()->user()->channel->picture }}" class="avatar avatar-md rounded-circle" height="30" width="30">
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a href="{{ route('channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item text-capitalize d-flex align-items-center">
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="width: 250px; border-radius: 0.75rem;">
+                                    <div class="dropdown-item text-decoration-none d-flex align-items-center gap-3">
+                                        <img src="{{ auth()->user()->channel->picture }}" class="rounded-circle" height="35" width="35">
+                                        <div class="d-flex flex-column text-black-50 fw-semibold">
+                                            <span class="text-upperfirst">{{ auth()->user()->channel->name }}</span>
+                                            <span class="text-upperfirst">{{ auth()->user()->email }}</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <a href="{{ route('channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">account_box</div>channel anda
                                     </a>
-                                    <a href="{{ route('subscription') }}" class="dropdown-item text-capitalize d-flex align-items-center">
-                                        <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">subscriptions</div>subscription
+                                    <a href="{{ route('video.subscription') }}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
+                                        <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">subscriptions</div>youtube studio
                                     </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item fw-semibold text-black-50 d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">input</div> {{ __('Logout') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

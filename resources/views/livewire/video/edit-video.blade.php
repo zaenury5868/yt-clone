@@ -36,9 +36,9 @@
                     <div class="form-group mb-2">
                         <label for="visibility">Visibility</label>
                         <select wire:model="video.visibility" class="form-control">
-                            <option value="private">Private</option>
-                            <option value="public">Public</option>
-                            <option value="unlisted">Unlisted</option>
+                            <option value="private">Pribadi</option>
+                            <option value="public">Publik</option>
+                            <option value="unlisted">Tidak publik</option>
                         </select>
                     </div>
                     @error('video.visibility')

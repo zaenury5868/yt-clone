@@ -25,20 +25,12 @@ use App\Http\Controllers\ChannelController;
 Route::middleware('minim')->group(function(){ 
     Route::get('/', function () {
         return view('welcome');
-    });
+    })->name('home');
 
-    Route::get('/feed/subscriptions', function () {
-        if(Auth::check()) {
-            $channels = Auth::user()->subscribedChannels()->with('videos')->get()->pluck('videos');
-        } else {
-            $channels = Channel::get()->pluck('videos');
-        }
-        return view('subscriber.subscription', compact('channels'));
-    })->name('subscription');
+    Route::get('/feed/trending/', function() {
+        
+    })->name('video.trending');
 
-    
-
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Auth::routes();
     
     Route::middleware('auth')->group(function() {
@@ -49,6 +41,20 @@ Route::middleware('minim')->group(function(){
         Route::get('/videos/create/{channel}', CreateVideo::class)->name('video.create');
         Route::get('/videos/{channel}/{video}/edit', EditVideo::class)->name('video.edit');
         Route::get('/videos/{channel}', AllVideo::class)->name('video.all');
+        Route::get('/feed/subscriptions', function () {
+            if(Auth::check()) {
+                $channels = Auth::user()->subscribedChannels()->with('videos')->get()->pluck('videos');
+            } else {
+                $channels = Channel::get()->pluck('videos');
+            }
+            return view('subscriber.subscription', compact('channels'));
+        })->name('video.subscription');
+        Route::get('/feed/history', function() {
+
+        })->name('video.history');
+        Route::get('/playlist', function() {
+
+        })->name('video.like');
     });
     
     Route::get('/watch', WatchVideo::class)->name('video.watch');
