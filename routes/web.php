@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Video;
 use App\Models\Channel;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Video\AllVideo;

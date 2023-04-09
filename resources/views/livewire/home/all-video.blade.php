@@ -4,13 +4,13 @@
             <h1 class="text-danger text-center mt-4">Tidak ada video</h1>
         @else
             <div class="row justify-content-center">
-                <div class="items d-flex mb-4 w-50" style="gap: 20px; overflow-x: scroll; overflow-y: hidden;">
-                    <button class="btn text-capitalize btn-secondary">semua</button>
-                    <button class="btn text-capitalize btn-secondary">programming</button>
-                    <button class="btn text-capitalize btn-secondary">musik</button>
-                    <button class="btn text-capitalize btn-secondary">tips</button>
-                    <button class="btn text-capitalize btn-secondary">baru diupload</button>
-                    <button class="btn text-capitalize btn-secondary">ditonton</button>
+                <div class="items d-flex mb-4 w-100" style="gap: 20px; overflow-x: scroll; overflow-y: hidden;">
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50">semua</button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50">teknologi</button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50">musik</button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50">tips</button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50">baru diupload</button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50">ditonton</button>
                 </div>
             </div>
         @endif
@@ -54,8 +54,11 @@
                         </header>
                         <div class="w3-container m-auto">
                             <div class="d-flex justify-content-center">
-                                <div class="social-media">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ $uid }}" class="social-media-btn" target="__blank"><i class="fa fa-facebook-official"></i></a>
+                                <div class="social-media gap-3-half">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ $uid }}" class="social-media-btn text-upperfirst" target="__blank">
+                                        <i class="fa fa-facebook-official"></i>
+                                        <p class="text-black-50 fw-semibold text-social" style="font-size: .75rem !important">facebook</p>
+                                    </a>
                                     <a href="https://twitter.com/share?&url={{ $uid }}&text={{ $title }}" class="social-media-btn" target="__blank"><i class="fa fa-twitter"></i></a>
                                     <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $uid }}" class="social-media-btn" target="__blank"><i class="fa fa-linkedin"></i></a>
                                     <a href="https://www.reddit.com/submit?url={{ $uid }}&title={{ $title }}" class="social-media-btn" target="__blank"><i class="fa fa-reddit"></i></a>
@@ -64,7 +67,7 @@
                                     <a href="https://wa.me/?text={{ $uid }}" class="social-media-btn" target="__blank"><i class="fa fa-whatsapp"></i></a>
                                 </div>
                             </div>
-                            <div class="input-group tool-text"> 
+                            <div class="input-group my-4 tool-text"> 
                                 <input type="text" id="copy" class="form-control p-2" wire:model="uid">
                                 <button type="submit" class="input-group-text search-btn text-capitalize" onclick="copyLink()" onmouseout="outFunc()">
                                     <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>

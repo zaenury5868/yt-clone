@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class=" navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class=" navbar navbar-expand-md navbar-light shadow-sm" style="box-shadow: none !important;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -46,8 +46,8 @@
                     <div class="m-auto w-50">
                         <form action="{{ route('search') }}" method="get">
                             <div class="input-group">
-                                <input type="text" name="search_query" class="form-control form-control-search" placeholder="Telusuri">
-                                <button type="submit" class="input-group-text search-btn"><i class="material-icons">search</i></button>
+                                <input type="text" name="search_query" class="form-control fw-semibold form-control-search" placeholder="Telusuri">
+                                <button type="submit" class="input-group-text search-btn text-black-50"><i class="material-icons">search</i></button>
                             </div>
                         </form>
                     </div>
@@ -57,14 +57,17 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link d-flex align-items-center gap-2 fw-semibold" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;" href="{{ route('login') }}">
+                                        <span class="material-icons">account_circle</span>
+                                        {{ __('Login') }}
+                                    </a>
                                 </li>
                             @endif
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item">
                                 <a href="{{ route('video.create', ['channel' => Auth::user()->channel]) }}" class="nav-link">

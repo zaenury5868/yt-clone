@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="p-10 rounded-lg bg-primary">
         <div class="container">
@@ -9,12 +8,12 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-                <img src="{{ $channel->picture }}" class="rounded-circle" height="130px;" width="130px;">
+                <img src="{{ $channel->picture }}" class="rounded-circle" height="130" width="130">
                 <div class="p-3">
                     <h3>{{ $channel->name }}</h3>
                     <p>{{ short_number($channel->subscribers()) }} subscriber {{ $channel->videos->count() }} video</p>
                     <div class="d-flex align-items-center">
-                        <a href="" class="text-decoration-none">
+                        <a href="javascrip:void(0)" class="text-decoration-none">
                             <span>{{ Str::words($channel->description, 20, '...') }}</span>
                         </a>
                         @if (!is_null($channel->description))

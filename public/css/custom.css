@@ -173,7 +173,8 @@ body {
 .social-media {
     transition: .5s;
     transition-delay: 0s;
-    height: 150px;
+    /* height: 120px; */
+    padding: 1rem 0 1rem 0;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -186,46 +187,58 @@ body {
     height: 50px;
     border-radius: 50%;
     background: #000;
-    color: #fff;
     line-height: 50px;
-    font-size: 25px;
     cursor: pointer;
-    margin: 0 5px;
+    margin: 0;
     text-align: center;
 }
 
 .social-media-btn:nth-child(1){
     background: #1877F2;
     color: white;
+    font-size: 25px;
+
 }
 
 .social-media-btn:nth-child(2){
     background: #1DA1F2;
     color: white;
+    font-size: 25px;
+
 }
 
 .social-media-btn:nth-child(3){
     background: #0A66C2;
     color: white;
+    font-size: 25px;
+
 }
 
 .social-media-btn:nth-child(4){
     background: #FF4500;
     color: white;
+    font-size: 25px;
+
 }
 
 .social-media-btn:nth-child(5){
     background: #888888;
     color: white;
+    font-size: 25px;
+
 }
 
 .social-media-btn:nth-child(6){
     background: #E60023;
     color: white;
+    font-size: 25px;
+
 }
 .social-media-btn:nth-child(7){
     background: #25D366;
     color: white;
+    font-size: 25px;
+
 }
 
 .skeleton {
@@ -260,6 +273,53 @@ body {
     }
 }
 
+.font-initial {
+    font-size: initial;
+}
+
+.filter-video {
+    background-color: #f1f1f1 !important;
+    border: none !important;
+    color: #000 !important;
+}
+
 .text-upperfirst::first-letter {
     text-transform: uppercase;
+}
+
+.max-h-500 {
+    max-height: 100%;
+    overflow-x: scroll;
+}
+
+.gap-3-half {
+    gap: 1.3rem;
+}
+
+.w3-modal {
+    padding-top: 200px !important;
+}
+
+@media (min-width: 993px) {
+    .w3-modal-content {
+        width: 500px !important;
+    }
+}
+
+@media (max-width: 993px) {
+    .text-social {
+        display: none;
+    }
+}
+
+/* @media (min-width: 1400px) {
+    .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1500px !important;
+    }
+} */
+
+@media (min-width: 576px) {
+    .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 98% !important;
+    }
 }
