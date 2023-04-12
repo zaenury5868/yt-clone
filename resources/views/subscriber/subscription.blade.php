@@ -12,7 +12,7 @@
                     <div class="card mb-4" style="border:none; background: none !important;">
                         @include('includes.videoThumbnail')
                         <div class="d-flex mt-3">
-                            <a href="{{ route('channel.index', ['channel' => $video->channel->name]) }}" style="margin-right: 1rem;">
+                            <a href="{{ route('video.channel.index', ['channel' => $video->channel->name]) }}" style="margin-right: 1rem;">
                                 <img src="{{ $video->channel->picture }}" class="rounded-circle" height="40" width="40">
                             </a>
                             <div class="row">
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="d-flex mt-3 flex-column">
                                     <p class="d-flex gray-text font-weight-bold align-items-center" style="line-height: 0.2px">
-                                        <a href="{{ route('channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
+                                        <a href="{{ route('video.channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
                                             {{ $video->channel->name }}
                                         </a>
                                         <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">check_circle</i>

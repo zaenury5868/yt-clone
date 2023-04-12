@@ -24,7 +24,7 @@
             </div>
             <div>
                 @can('update', $channel)
-                    <a href="{{ route('channel.edit', $channel) }}" class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm">kelola video</a>
+                    <a href="{{ route('video.channel.edit', $channel) }}" class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm">kelola video</a>
                 @endcan
             </div>
         </div>

@@ -2,8 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware
 {
@@ -12,6 +13,13 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : route('login');
+        if (!$request->expectsJson()) {
+            // return route('login');
+            if($request->routeIs('video.*')) {
+                session()->flash('fail', 'Anda harus masuk terlebih dahulu');
+                return route('login',['fail'=>true,'returnUrl' => URL::current()]);
+            }
+        }
+        // return $request->expectsJson() ? null : route('login');
     }
 }

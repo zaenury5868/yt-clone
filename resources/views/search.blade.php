@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="row my-3">
                                         <div class="d-flex align-items-center">
-                                            <a href="{{ route('channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
+                                            <a href="{{ route('video.channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
                                                 <img src="{{ asset('/images/' . $video->channel->image) }}" class="rounded-circle" alt="{{ $video->channel->name }}" width="30" style="margin-right: 8px">
                                                 <span class="gray-text font-weight-bold">
                                                     {{ $video->channel->name }}

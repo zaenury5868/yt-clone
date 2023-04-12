@@ -65,6 +65,6 @@ class EditChannel extends Component
         }
 
         session()->flash('message', 'Channel update');
-        return redirect()->route('channel.edit', ['channel' => $this->channel->slug]);
+        return redirect()->route('video.channel.edit', ['channel' => $this->channel->slug]);
     }
 }

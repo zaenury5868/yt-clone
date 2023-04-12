@@ -26,39 +26,42 @@ Route::middleware('minim')->group(function(){
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
-
-    Route::get('/feed/trending/', function() {
-        
-    })->name('video.trending');
-
-    Auth::routes();
     
-    Route::middleware('auth')->group(function() {
-        Route::get('/channel/edit/{channel}', [ChannelController::class, 'edit'])->name('channel.edit');
+    Route::prefix('v1')->group(function(){ 
+        Auth::routes();
     });
     
-    Route::middleware('auth')->group(function() {
-        Route::get('/videos/create/{channel}', CreateVideo::class)->name('video.create');
-        Route::get('/videos/{channel}/{video}/edit', EditVideo::class)->name('video.edit');
-        Route::get('/videos/{channel}', AllVideo::class)->name('video.all');
-        Route::get('/feed/subscriptions', function () {
-            if(Auth::check()) {
-                $channels = Auth::user()->subscribedChannels()->with('videos')->get()->pluck('videos');
-            } else {
-                $channels = Channel::get()->pluck('videos');
-            }
-            return view('subscriber.subscription', compact('channels'));
-        })->name('video.subscription');
-        Route::get('/feed/history', function() {
+    Route::name('video.')->group(function(){ 
+        Route::get('/feed/trending/', function() {
+            
+        })->name('trending');
 
-        })->name('video.history');
-        Route::get('/playlist', function() {
-
-        })->name('video.like');
-    });
+        Route::middleware('auth')->group(function() {
+            Route::get('/channel/edit/{channel}', [ChannelController::class, 'edit'])->name('channel.edit');
+            Route::get('/videos/create/{channel}', CreateVideo::class)->name('create');
+            Route::get('/videos/{channel}/{video}/edit', EditVideo::class)->name('edit');
+            Route::get('/videos/{channel}', AllVideo::class)->name('all');
+            Route::get('/feed/subscriptions', function () {
+                if(Auth::check()) {
+                    $channels = Auth::user()->subscribedChannels()->with('videos')->get()->pluck('videos');
+                } else {
+                    $channels = Channel::get()->pluck('videos');
+                }
+                return view('subscriber.subscription', compact('channels'));
+            })->name('subscription');
+            Route::get('/feed/history', function() {
     
-    Route::get('/watch', WatchVideo::class)->name('video.watch');
-    Route::get('/results/', [SearchController::class, 'search'])->name('search');
-    Route::get('/@{channel}', [ChannelController::class, 'index'])->name('channel.index');
+            })->name('history');
+            Route::get('/playlist', function() {
+    
+            })->name('like');
+            Route::get('/watch', WatchVideo::class)->name('watch');
+            Route::get('/results/', [SearchController::class, 'search'])->name('search');
+            Route::get('/@{channel}', [ChannelController::class, 'index'])->name('channel.index');
+        });
+    });
+
+
+    
 });
 

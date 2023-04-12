@@ -44,7 +44,7 @@
                         @endauth
                     </ul>
                     <div class="m-auto w-50">
-                        <form action="{{ route('search') }}" method="get">
+                        <form action="{{ route('video.search') }}" method="get">
                             <div class="input-group">
                                 <input type="text" name="search_query" class="form-control fw-semibold form-control-search" placeholder="Telusuri">
                                 <button type="submit" class="input-group-text search-btn text-black-50"><i class="material-icons">search</i></button>
@@ -114,7 +114,7 @@
                                         </div>
                                     </div>
                                     <hr>
-                                    <a href="{{ route('channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
+                                    <a href="{{ route('video.channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">account_box</div>channel anda
                                     </a>
                                     <a href="{{ route('video.subscription') }}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">

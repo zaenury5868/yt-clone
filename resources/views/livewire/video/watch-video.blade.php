@@ -30,7 +30,7 @@
                         <div class="me-auto">
                             <div class="d-flex align-items-center gap-4">
                                 <img src="{{ $video->channel->picture }}" class="rounded-circle" height="50" width="50">
-                                <a href="{{ route('channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
+                                <a href="{{ route('video.channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
                                     <div>
                                         <h4>{{ $video->channel->name }}</h4>
                                         <p class="gray-text">{{ short_number($video->channel->subscribers()) }} subscriber</p>
