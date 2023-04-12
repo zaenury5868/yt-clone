@@ -1,4 +1,32 @@
 @push('custom-css')
+    <!-- Open Graph meta tags for social media -->
+    <meta property="og:title" content="Beranda - Youtube Cloning">
+    <meta property="og:description" content="Nikmati video dan musik yang Anda suka, upload konten asli, dan bagikan kepada teman, keluarga, dan dunia di YouTube Cloning.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ URL::full() }}">
+    <meta property="og:image" content="https://www.youtube.com/img/desktop/yt_1200.png">
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:alt" content="Youtube Cloning">
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Youtube Cloning" />
+    <meta property="og:country-name" content="{{ str_replace('_', '-', app()->getLocale()) }}"/>
+    <meta property="article:publisher" content="https://www.facebook.com/zaenury5868" />
+
+    
+    <!-- Twitter Card meta tags for social media -->
+    <meta property="twitter:domain" content="{{ Request::getHost() }}">
+    <meta property="twitter:site" content="@ZaenuryWibowo">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ URL::full() }}">
+    <meta property="twitter:title" content="Beranda - Youtube Cloning">
+    <meta property="twitter:description" content="Nikmati video dan musik yang Anda suka, upload konten asli, dan bagikan kepada teman, keluarga, dan dunia di YouTube Cloning.">
+    <meta property="twitter:image" content="https://www.youtube.com/img/desktop/yt_1200.png">
+    <meta property="twitter:label1" content="Official Youtube Cloning" />
+    
+    <!-- Canonical link tag -->
+    <link rel="canonical" href="{{ URL::full() }}">
+
     <!-- JSON-LD script -->
     <script type="application/ld+json">
         {
@@ -79,12 +107,12 @@
         @else
             <div class="row justify-content-center">
                 <div class="items d-flex mb-4 w-100" style="gap: 20px; overflow-x: scroll; overflow-y: hidden;">
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm">semua</button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm">teknologi</button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm">musik</button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm">tips</button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm">baru diupload</button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm">ditonton</button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">semua</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">teknologi</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">musik</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">programming</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">baru diupload</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">ditonton</h2></button>
                 </div>
             </div>
         @endif
@@ -115,14 +143,14 @@
                         @include('includes.videoThumbnail')
                         <div class="d-flex mt-3">
                             <a href="{{ route('video.channel.index', ['channel' => $video->channel->name]) }}" class="mr-2">
-                                <img src="{{ $video->channel->picture }}" class="rounded-circle" height="40" width="40">
+                                <img src="{{ $video->channel->picture }}" loading="lazy" class="rounded-circle" height="40" width="40" alt="{{ $video->channel->name }}" title="{{ $video->channel->name }}">
                             </a>
                             <div class="row">
                                 <div class="d-flex justify-content-between">
                                     <a href="{{ route('video.watch', ['v' => $video]) }}" class="text-decoration-none">
-                                        <span class="text-black" data-bs-toggle="tooltip" title="{{ $video->title }}">
+                                        <h3 class="text-black h6" data-bs-toggle="tooltip" title="{{ $video->title }}">
                                             {{ Str::words($video->title, 6, '...') }} 
-                                        </span>
+                                        </h3>
                                     </a>
                                         <button class="text-decoration-none btn" wire:click.prevent="detailVideo({{ $video->id }})">
                                             <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">more_vert</i>

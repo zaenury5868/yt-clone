@@ -1,11 +1,12 @@
 @extends('layouts.app')
-
+@section('title', isset($title) ? $title : $query)
 @section('content')
 <div class="container">
     <div class="row my-4">
         <div class="d-flex justify-content-center">
             <div class="col-md-8">
                 <div class="space-y">
+                    {{ $query }}
                     @if ($videos->count())
                         <button class="btn btn-group text-capitalize fw-semibold">
                             <i class="material-icons">tune</i>

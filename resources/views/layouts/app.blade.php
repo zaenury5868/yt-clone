@@ -2,12 +2,24 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Nikmati video dan musik yang Anda suka, upload konten asli, dan bagikan kepada teman, keluarga, dan dunia di YouTube Cloning.">
+    <meta name="keywords" content="video, berbagi, ponsel kamera, ponsel video, gratis, upload">
+    <meta name="author" content="Zaenury Dhany Wibowo">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="rgba(33, 33, 33, 0.98)">
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="https://www.youtube.com/s/desktop/932eb6a8/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://www.youtube.com/s/desktop/932eb6a8/img/favicon_32x32.png" sizes="32x32"/>
+    <link rel="apple-touch-icon" href="https://www.youtube.com/s/desktop/932eb6a8/img/favicon_48x48.png" sizes="48x48"/>
+    <link rel="apple-touch-icon" href="https://www.youtube.com/s/desktop/932eb6a8/img/favicon_144x144.png" sizes="144x144"/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -29,7 +41,8 @@
         <nav class=" navbar navbar-expand-md navbar-light shadow-sm" style="box-shadow: none !important;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <h1 class="h4">{{ config('app.name', 'Youtube Cloning') }}</h1>
+                    {{ config('app.name', 'Youtube Cloning') }}
+                    <h1 hidden>landing page {{ config('app.name', 'Youtube Cloning') }}</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,7 +58,6 @@
                     </ul>
                     <div class="m-auto w-50">
                         <form action="{{ route('video.search') }}" method="get">
-                            @csrf
                             <div class="input-group">
                                 <input type="text" name="search_query" class="form-control fw-semibold form-control-search" placeholder="Telusuri">
                                 <button type="submit" class="input-group-text search-btn text-black-50"><i class="material-icons">search</i></button>
