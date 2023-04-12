@@ -29,7 +29,7 @@
         <nav class=" navbar navbar-expand-md navbar-light shadow-sm" style="box-shadow: none !important;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <h1 class="h4">{{ config('app.name', 'Youtube Cloning') }}</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,6 +45,7 @@
                     </ul>
                     <div class="m-auto w-50">
                         <form action="{{ route('video.search') }}" method="get">
+                            @csrf
                             <div class="input-group">
                                 <input type="text" name="search_query" class="form-control fw-semibold form-control-search" placeholder="Telusuri">
                                 <button type="submit" class="input-group-text search-btn text-black-50"><i class="material-icons">search</i></button>

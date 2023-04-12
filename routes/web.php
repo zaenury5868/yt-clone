@@ -35,6 +35,9 @@ Route::middleware('minim')->group(function(){
         Route::get('/feed/trending/', function() {
             
         })->name('trending');
+        Route::get('/watch', WatchVideo::class)->name('watch');
+        Route::get('/results/', [SearchController::class, 'search'])->name('search');
+        Route::get('/@{channel}', [ChannelController::class, 'index'])->name('channel.index');
 
         Route::middleware('auth')->group(function() {
             Route::get('/channel/edit/{channel}', [ChannelController::class, 'edit'])->name('channel.edit');
@@ -55,9 +58,6 @@ Route::middleware('minim')->group(function(){
             Route::get('/playlist', function() {
     
             })->name('like');
-            Route::get('/watch', WatchVideo::class)->name('watch');
-            Route::get('/results/', [SearchController::class, 'search'])->name('search');
-            Route::get('/@{channel}', [ChannelController::class, 'index'])->name('channel.index');
         });
     });
 
