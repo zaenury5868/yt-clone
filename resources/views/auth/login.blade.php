@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', isset($title) ? $title : 'Login - Youtube Cloning')
 @section('content')
 <div class="container">
     <div class="row justify-content-center my-4">
@@ -56,6 +56,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
+                                @if (Route::has('register'))
+                                    <a class="btn btn-link text-decoration-none" href="{{ route('register') }}">{{ __('Daftar Akun') }}</a>
+                                @endif
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link text-decoration-none" href="{{ route('password.request') }}">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', isset($title) ? $title : 'Konfirmasi Password - Youtube Cloning')
 @section('content')
 <div class="container">
     <div class="row justify-content-center my-4">
