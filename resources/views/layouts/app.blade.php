@@ -56,13 +56,143 @@
                             </li>
                         @endauth
                     </ul>
-                    <div class="m-auto w-50">
+                    <div x-data="{search: false}" x-intersect="shown=true"  class="m-auto w-50 position-relative">
                         <form action="{{ route('video.search') }}" method="get">
                             <div class="input-group">
-                                <input type="text" name="search_query" class="form-control fw-semibold form-control-search" placeholder="Telusuri">
+                                <input type="text" name="search_query" @click="search= !search" class="form-control fw-semibold form-control-search" placeholder="Telusuri">
                                 <button type="submit" class="input-group-text search-btn text-black-50"><i class="material-icons">search</i></button>
                             </div>
                         </form>
+                        <div x-show="search" x-trap="search" x-transition class="card my-2 position-absolute history-search" style="border-radius: .75rem; z-index: 1;">
+                            <div class="card-body search-btn for-search">
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                                <div class="d-flex my-2 justify-content-between">
+                                    <a href="" class="text-decoration-none fw-semibold">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="material-icons text-black-50">history</i>
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">

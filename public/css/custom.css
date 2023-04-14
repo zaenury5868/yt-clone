@@ -318,6 +318,15 @@ body {
     padding-top: 200px !important;
 }
 
+.history-search {
+    width: 93% !important;
+}
+
+.card .for-search{
+    max-height: 340px; 
+    overflow-y: scroll;
+}
+
 @media (min-width: 993px) {
     .w3-modal-content {
         width: 500px !important;
