@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,7 @@
     <meta name="author" content="Zaenury Dhany Wibowo">
     <meta name="robots" content="index,follow">
     <meta name="theme-color" content="rgba(33, 33, 33, 0.98)">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="https://www.youtube.com/s/desktop/932eb6a8/img/favicon.ico" type="image/x-icon">
@@ -16,24 +18,12 @@
     <link rel="apple-touch-icon" href="https://www.youtube.com/s/desktop/932eb6a8/img/favicon_48x48.png" sizes="48x48"/>
     <link rel="apple-touch-icon" href="https://www.youtube.com/s/desktop/932eb6a8/img/favicon_144x144.png" sizes="144x144"/>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>@yield('title')</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
     @stack('custom-css')
-    <!-- material icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    <!-- alpine js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+    <!-- CSRF Token -->
+    
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    
     @livewireStyles
 </head>
 <body>
@@ -55,7 +45,7 @@
                     <button class="btn" type="button" @click="sidebar= !sidebar" id="toggle" style="padding: 0; border: none;"> 
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand fw-semibold" href="{{ url('/') }}">
                         {{ config('app.name', 'Youtube Cloning') }}
                         <h1 hidden>landing page {{ config('app.name', 'Youtube Cloning') }}</h1>
                     </a>
@@ -81,124 +71,7 @@
                                             <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
                                         </div>
                                     </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
-                                </div>
-                                <div class="d-flex my-2 justify-content-between">
-                                    <a href="" class="text-decoration-none fw-semibold">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <i class="material-icons text-black-50">history</i>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-capitalize text-decoration-none text-black-50">hapus</a>
+                                    <a href="" class="text-capitalize fw-semibold text-decoration-none text-black-50">hapus</a>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +82,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-2 fw-semibold" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;" href="{{ route('login') }}">
+                                    <a class="nav-link d-flex align-items-center text-black-50 gap-2 fw-semibold" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;" href="{{ route('login') }}">
                                         <span class="material-icons">account_circle</span>
                                         {{ __('Login') }}
                                     </a>

@@ -17,8 +17,6 @@
 </div>
 @endsection
 @push('scripts')
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/share.js') }}"></script>
     <script>
         window.addEventListener('showdetailModal', function(event) {
             document.getElementById('id01').style.display='block'
@@ -30,7 +28,7 @@
             copyText.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(copyText.value);
             var tooltip = document.getElementById("myTooltip");
-            tooltip.innerHTML = "Copied: " + copyText.value;
+            tooltip.innerHTML = copyText.value;
         }
 
         function outFunc() {

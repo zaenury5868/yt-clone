@@ -107,12 +107,12 @@
         @else
             <div class="row justify-content-center">
                 <div class="items d-flex mb-4 w-100" style="gap: 20px; overflow-x: scroll; overflow-y: hidden;">
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">semua</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">teknologi</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">musik</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">programming</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">baru diupload</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6">ditonton</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">semua</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">teknologi</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">musik</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">programming</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">baru diupload</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">ditonton</h2></button>
                 </div>
             </div>
         @endif
@@ -152,18 +152,18 @@
                                             {{ Str::words($video->title, 6, '...') }} 
                                         </h3>
                                     </a>
-                                        <button class="text-decoration-none btn" wire:click.prevent="detailVideo({{ $video->id }})">
+                                        <button class="text-decoration-none btn fw-semibold" wire:click.prevent="detailVideo({{ $video->id }})">
                                             <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">more_vert</i>
                                         </button>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <p class="d-flex gray-text font-weight-bold align-items-center" style="line-height: 0.2px">
+                                    <p class="d-flex gray-text font-weight-bold align-items-center fw-semibold" style="line-height: 0.2px">
                                         <a href="{{ route('video.channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
                                             {{ $video->channel->name }}
                                         </a>
                                         <i class="material-icons" style="font-size: 1rem; margin-left: 0.2rem;">check_circle</i>
                                     </p>
-                                    <p class="gray-text font-weight-bold" style="line-height: 0px">{{ short_number($video->views) }} x ditonton • {{ $video->created_at->diffForHumans() }}</p>
+                                    <p class="gray-text font-weight-bold fw-semibold" style="line-height: 0px">{{ short_number($video->views) }} x ditonton • {{ $video->created_at->diffForHumans() }}</p>
                                 </div>
                             </div>
                         </div>
@@ -174,38 +174,38 @@
                 <div class="w3-modal-content" style="border-radius: 1rem">
                     <header class="w3-container pt-4"> 
                         <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                        <span class="text-capitalize text-black-50 fw-semibold">bagikan</span>
+                        <span class="text-capitalize text-black fw-semibold">bagikan</span>
                     </header>
                     <div class="w3-container m-auto">
                         <div class="d-flex justify-content-center">
                             <div class="social-media gap-3-half">
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ $uid }}" class="social-media-btn text-upperfirst" target="__blank">
                                     <i class="fa fa-facebook-official"></i>
-                                    <p class="text-black-50 fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">facebook</p>
+                                    <p class="text-black fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">facebook</p>
                                 </a>
                                 <a href="https://twitter.com/share?&url={{ $uid }}&text={{ $title }}" class="social-media-btn" target="__blank">
                                     <i class="fa fa-twitter"></i>
-                                    <p class="text-black-50 fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">twitter</p>
+                                    <p class="text-black fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">twitter</p>
                                 </a>
                                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $uid }}" class="social-media-btn" target="__blank">
                                     <i class="fa fa-linkedin"></i>
-                                    <p class="text-black-50 fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">linkedin</p>                                    
+                                    <p class="text-black fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">linkedin</p>                                    
                                 </a>
                                 <a href="https://www.reddit.com/submit?url={{ $uid }}&title={{ $title }}" class="social-media-btn" target="__blank">
                                     <i class="fa fa-reddit"></i>
-                                    <p class="text-black-50 fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">reddit</p>                                    
+                                    <p class="text-black fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">reddit</p>                                    
                                 </a>
                                 <a href="mailto:?subject={{ $title }}&amp;body={{ $uid }}" class="social-media-btn" target="__blank">
                                     <i class="fa fa-envelope"></i>
-                                    <p class="text-black-50 fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">email</p>                                    
+                                    <p class="text-black fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">email</p>                                    
                                 </a>
                                 <a href="https://pinterest.com/pin/create/button/?url={{ $uid }}&media={{ $video->channel->picture }}&description={{ $description }}" class="social-media-btn" target="__blank">
                                     <i class="fa fa-pinterest"></i>
-                                    <p class="text-black-50 fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">pinterest</p>                                    
+                                    <p class="text-black fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">pinterest</p>                                    
                                 </a>
                                 <a href="https://wa.me/?text={{ $uid }}" class="social-media-btn" target="__blank">
                                     <i class="fa fa-whatsapp"></i>
-                                    <p class="text-black-50 fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">whatsapp</p>                                    
+                                    <p class="text-black fw-semibold text-social text-upperfirst" style="font-size: .75rem !important">whatsapp</p>                                    
                                 </a>
                             </div>
                         </div>
