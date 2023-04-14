@@ -37,25 +37,34 @@
     @livewireStyles
 </head>
 <body>
-    <div id="app">
+    <div x-data="{sidebar: true}" x-intersect="sidebar=true" id="app" x-init="
+        $watch('sidebar', value => { 
+            console.log(value);
+            const element = document.querySelector('#content'); 
+            if (value) { 
+                element.classList.remove('col-md-12'); 
+                element.classList.add('col-md-10'); 
+            } else { 
+                element.classList.add('col-md-12'); 
+                element.classList.remove('col-md-10'); 
+            } 
+        })">
         <nav class=" navbar navbar-expand-md navbar-light shadow-sm" style="box-shadow: none !important;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Youtube Cloning') }}
-                    <h1 hidden>landing page {{ config('app.name', 'Youtube Cloning') }}</h1>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <div class="d-flex align-items-center gap-4">
+                    <button class="btn" type="button" @click="sidebar= !sidebar" id="toggle" style="padding: 0; border: none;"> 
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Youtube Cloning') }}
+                        <h1 hidden>landing page {{ config('app.name', 'Youtube Cloning') }}</h1>
+                    </a>
+                </div>
+                {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                </button> --}}
+                <div class="collapse navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        @auth
-                            <li class="nav-item">
-                                <a href="{{ route('video.all', auth()->user()->channel) }}" class="nav-link">Semua Video</a>
-                            </li>
-                        @endauth
-                    </ul>
                     <div x-data="{search: false}" x-intersect="shown=true"  class="m-auto w-50 position-relative">
                         <form action="{{ route('video.search') }}" method="get">
                             <div class="input-group">
@@ -63,7 +72,7 @@
                                 <button type="submit" class="input-group-text search-btn text-black-50"><i class="material-icons">search</i></button>
                             </div>
                         </form>
-                        <div x-show="search" x-trap="search" x-transition class="card my-2 position-absolute history-search" style="border-radius: .75rem; z-index: 1;">
+                        <div x-show="search" x-trap="search" class="card my-2 position-absolute history-search" style="border-radius: .75rem; z-index: 1;">
                             <div class="card-body search-btn for-search">
                                 <div class="d-flex my-2 justify-content-between">
                                     <a href="" class="text-decoration-none fw-semibold">
@@ -255,7 +264,7 @@
                                     <a href="{{ route('video.channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">account_box</div>channel anda
                                     </a>
-                                    <a href="{{ route('video.subscription') }}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
+                                    <a href="{{ route('video.all', auth()->user()->channel) }}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">subscriptions</div>youtube studio
                                     </a>
                                     <a class="dropdown-item fw-semibold text-black-50 d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

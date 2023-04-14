@@ -7,10 +7,10 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2" x-show="sidebar" x-trap="sidebar" x-transition>
             @include('includes.sidebar')
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10" id="content">
             @livewire('home.all-video')
         </div>
     </div>
