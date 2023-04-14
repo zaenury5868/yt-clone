@@ -82,7 +82,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center text-black-50 gap-2 fw-semibold" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;" href="{{ route('login') }}">
+                                    <a href="auth/google/redirect" class="nav-link d-flex align-items-center text-black-50 gap-2 fw-semibold" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;">
                                         <span class="material-icons">account_circle</span>
                                         {{ __('Login') }}
                                     </a>
@@ -90,9 +90,9 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a href="{{ route('video.create', ['channel' => Auth::user()->channel]) }}" class="nav-link">
+                                {{-- <a href="{{ route('video.create', ['channel' => Auth::user()->channel]) }}" class="nav-link">
                                     <span class="material-icons">video_call</span>
-                                </a>
+                                </a> --}}
                             </li>
                             <li class="nav-item dropdown">
                                 <div class="nav-link" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -137,9 +137,9 @@
                                     <a href="{{ route('video.channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">account_box</div>channel anda
                                     </a>
-                                    <a href="{{ route('video.all', auth()->user()->channel) }}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
+                                    {{-- <a href="{{ route('video.all', auth()->user()->channel) }}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">subscriptions</div>youtube studio
-                                    </a>
+                                    </a> --}}
                                     <a class="dropdown-item fw-semibold text-black-50 d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">input</div> {{ __('Logout') }}
                                     </a>

@@ -25,10 +25,10 @@
             <span class="material-icons">history</span>
             <span class="text-upperfirst">history</span>
         </a>
-        <a href="{{ route('video.all', auth()->user()->channel) }}" class="text-decoration-none @if(Route::current()->getName() == 'video.all') sb-active fw-bold text-black @else fw-semibold @endif d-flex mb-3 align-items-center gap-4">
+        {{-- <a href="{{ route('video.all', auth()->user()->channel) }}" class="text-decoration-none @if(Route::current()->getName() == 'video.all') sb-active fw-bold text-black @else fw-semibold @endif d-flex mb-3 align-items-center gap-4">
             <span class="material-icons">smart_display</span>
             <span class="text-upperfirst">video anda</span>
-        </a>
+        </a> --}}
         <a href="{{ route('video.like') }}" class="text-decoration-none @if(Route::current()->getName() == 'video.like') sb-active fw-bold text-black @else fw-semibold @endif d-flex mb-3 align-items-center gap-4">
             <span class="material-icons">thumb_up</span>
             <span class="text-upperfirst">video yang disukai</span>

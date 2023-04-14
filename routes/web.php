@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Video;
+use App\Http\Controllers\Auth\ProviderController;
 use App\Models\Channel;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Video\AllVideo;
@@ -22,8 +22,12 @@ use App\Http\Controllers\ChannelController;
 |
 */
 
+Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
+
 Route::middleware('minim')->group(function(){ 
     Route::get('/', function () {
+        // dd(auth()->user());
         return view('welcome');
     })->name('home');
     

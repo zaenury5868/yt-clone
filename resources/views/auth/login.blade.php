@@ -58,7 +58,9 @@
                                 </button>
                                 @if (Route::has('register'))
                                     <a class="btn btn-link text-decoration-none" href="{{ route('register') }}">{{ __('Daftar Akun') }}</a>
-                                @endif
+                                    @endif
+                                    <a class="btn btn-link text-decoration-none" href="/auth/github/redirect">github</a>
+                                    <a class="btn btn-link text-decoration-none" href="/auth/google/redirect">google</a>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link text-decoration-none" href="{{ route('password.request') }}">

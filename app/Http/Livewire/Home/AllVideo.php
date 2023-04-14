@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Video;
+use App\Models\Channel;
 use Livewire\Component;
 
 class AllVideo extends Component
 {
     public $videos;
+    public $channel;
     public $video;
     public $uid;
     public $title;
@@ -26,6 +28,7 @@ class AllVideo extends Component
     public function loadCardData() {
         sleep(rand(1, 3));
         $this->videos = Video::where('visibility', '!=','private')->orderBy('created_at', 'DESC')->get();
+        $this->channel = Channel::all();
     }
 
     public function detailVideo($uid) {
