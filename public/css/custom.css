@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: white;
+    background-color: white !important;
 }
 .video-container {
     width: 100%;
@@ -116,7 +116,7 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb:vertical {
-    background: #888;
+    background: transparent;
     border-radius: 10px;
 }
 
