@@ -1,4 +1,4 @@
-<div class="d-flex my-4 flex-column gy-3 position-sticky max-h-500">
+<div class="d-flex my-4 flex-column gy-3 position-fixed max-w-15 max-h-500">
     <a href="{{ url('/') }}" class="text-decoration-none @if(Route::current()->getName() == 'home') sb-active fw-bold text-black @else fw-semibold @endif d-flex mb-3 align-items-center gap-4">
         <span class="material-icons">home</span>
         <span class="text-upperfirst">beranda</span>

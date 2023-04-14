@@ -49,7 +49,7 @@
                 element.classList.remove('col-md-10'); 
             } 
         })">
-        <nav class=" navbar navbar-expand-md navbar-light shadow-sm" style="box-shadow: none !important;">
+        <nav class=" navbar navbar-expand-md navbar-light sticky-top bg-white shadow-sm" style="box-shadow: none !important;">
             <div class="container">
                 <div class="d-flex align-items-center gap-4">
                     <button class="btn" type="button" @click="sidebar= !sidebar" id="toggle" style="padding: 0; border: none;"> 

@@ -35,7 +35,7 @@
 
         function outFunc() {
             var tooltip = document.getElementById("myTooltip");
-            tooltip.innerHTML = "Copy to clipboard";
+            tooltip.innerHTML = "Salin link";
         }
     </script>
 @endpush
