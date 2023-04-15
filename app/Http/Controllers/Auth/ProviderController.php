@@ -18,9 +18,9 @@ class ProviderController extends Controller
     public function callback($provider) {
         try {
             $SocialUser = Socialite::driver($provider)->user();
-            if(User::where('email', $SocialUser->getEmail())->exists()) {
-                return redirect()->route('login')->withErrors(['email', 'Email ini menggunakan metode yang berbeda untuk masuk']);
-            }
+            // if(User::where('email', $SocialUser->getEmail())->exists()) {
+            //     return redirect()->route('login')->withErrors(['message', 'Email ini menggunakan metode yang berbeda untuk masuk']);
+            // }
 
             $user = User::where([
                 'provider' => $provider,

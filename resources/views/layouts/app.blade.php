@@ -90,9 +90,9 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                {{-- <a href="{{ route('video.create', ['channel' => Auth::user()->channel]) }}" class="nav-link">
+                                <a href="{{ route('video.create', ['channel' => Auth::user()->channel]) }}" class="nav-link">
                                     <span class="material-icons">video_call</span>
-                                </a> --}}
+                                </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <div class="nav-link" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
