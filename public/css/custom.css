@@ -33,7 +33,7 @@ body {
     border-radius: 0;
     border: none;
     background-color: #efefef !important;
-    color: #606060 !important;
+    /* color: #606060 !important; */
 }
 
 .sub-btn-active:hover, .sub-btn-active:focus {

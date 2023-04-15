@@ -24,7 +24,6 @@ class EditChannel extends Component
         ];
     }
 
-
     public function mount(Channel $channel) {
         $this->channel = $channel;
     }

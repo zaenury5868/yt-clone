@@ -137,9 +137,9 @@
                                     <a href="{{ route('video.channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">account_box</div>channel anda
                                     </a>
-                                    {{-- <a href="{{ route('video.all', auth()->user()->channel) }}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
+                                    <a href="{{ route('video.all', auth()->user()->channel) }}" class="dropdown-item pb-3 fw-semibold text-black-50 text-capitalize d-flex align-items-center">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">subscriptions</div>youtube studio
-                                    </a> --}}
+                                    </a>
                                     <a class="dropdown-item fw-semibold text-black-50 d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <div class="material-icons" style="margin-right: 0.75rem; font-size: 20px;">input</div> {{ __('Logout') }}
                                     </a>

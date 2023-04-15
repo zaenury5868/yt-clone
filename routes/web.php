@@ -27,7 +27,7 @@ Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback'])
 
 Route::middleware('minim')->group(function(){ 
     Route::get('/', function () {
-        // dd(auth()->user());
+        // dd(Auth::user()->channel);
         return view('welcome');
     })->name('home');
     

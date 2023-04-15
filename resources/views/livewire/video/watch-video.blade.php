@@ -36,8 +36,7 @@
                                         <p class="gray-text">{{ short_number($video->channel->subscribers()) }} subscriber</p>
                                     </div>
                                 </a>
-                        @livewire('channel.channel-info', ['channel' => $video->channel])
-                                
+                                @livewire('channel.channel-info', ['channel' => $video->channel])
                             </div>
                         </div>
                         <div class="ms-auto">

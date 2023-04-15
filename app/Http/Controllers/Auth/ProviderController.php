@@ -39,16 +39,24 @@ class ProviderController extends Controller
                 ]);
 
                 $createUser->channel()->create([
-                    'name' => $SocialUser->getName(),
+                    'name' => preg_replace('/\s+/', '', $SocialUser->getName()),
                     'slug' => Str::slug($SocialUser->getName(), '-'),
                     'uid' => \uniqid(true)
                 ]);
 
                 Auth::login($createUser);
-                return redirect()->route('home');
+                if(request()->returnUrl != null) {
+                    return redirect()->to(request()->returnUrl);
+                } else {
+                    return redirect()->route('home');
+                }
             } else {
                 Auth::login($user);
-                return redirect()->route('home');
+                if(request()->returnUrl != null) {
+                    return redirect()->to(request()->returnUrl);
+                } else {
+                    return redirect()->route('home');
+                }
             }
         } catch (\Exception $e) {
             return redirect('/v1/login');
