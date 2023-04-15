@@ -109,12 +109,12 @@
         @else
             <div class="row justify-content-center">
                 <div class="items d-flex mb-4 w-100" style="gap: 20px; overflow-x: scroll; overflow-y: hidden;">
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">semua</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">teknologi</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">musik</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">programming</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">baru diupload</h2></button>
-                    <button class="btn text-capitalize btn-secondary filter-video fw-semibold text-black-50 border-sm"><h2 class="h6 text-black-50">ditonton</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video border-sm"><h2 class="h6 text-black-50">semua</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video border-sm"><h2 class="h6 text-black-50">teknologi</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video border-sm"><h2 class="h6 text-black-50">musik</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video border-sm"><h2 class="h6 text-black-50">programming</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video border-sm"><h2 class="h6 text-black-50">baru diupload</h2></button>
+                    <button class="btn text-capitalize btn-secondary filter-video border-sm"><h2 class="h6 text-black-50">ditonton</h2></button>
                 </div>
             </div>
             @if(empty($videos))
