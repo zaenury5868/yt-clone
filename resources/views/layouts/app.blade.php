@@ -123,11 +123,12 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ auth()->user()->channel->picture }}" class="avatar avatar-md rounded-circle" height="30" width="30">
+                                    {{-- {{ auth()->user()->channel->picture }} --}}
+                                    <img src="{{ auth()->user()->photo }}" class="avatar avatar-md rounded-circle" height="30" width="30">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="width: 250px; border-radius: 0.75rem;">
                                     <div class="dropdown-item text-decoration-none d-flex align-items-center gap-3">
-                                        <img src="{{ auth()->user()->channel->picture }}" class="rounded-circle" height="35" width="35">
+                                        <img src="{{ auth()->user()->photo }}" class="rounded-circle" height="35" width="35">
                                         <div class="d-flex flex-column text-black-50 fw-semibold">
                                             <span class="text-upperfirst">{{ auth()->user()->channel->name }}</span>
                                             <span class="text-upperfirst">{{ auth()->user()->email }}</span>

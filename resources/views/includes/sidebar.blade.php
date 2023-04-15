@@ -43,7 +43,7 @@
                 </a>
             @endforeach
         @empty
-            <span class="text-danger text-center text-capitalize">tidak ada channel</span>            
+            <span class="text-danger fw-semibold text-start text-capitalize">tidak ada channel</span>            
         @endforelse
     @endguest
     <hr>

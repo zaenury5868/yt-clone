@@ -30,6 +30,7 @@ class ProviderController extends Controller
             if(!$user) {
                 $createUser = User::create([
                     'name' => $SocialUser->getName(),
+                    'photo' => $SocialUser->getAvatar(),
                     'email' => $SocialUser->getEmail(),
                     'username' => User::generateUsername($SocialUser->getNickname()),
                     'provider' => $provider,
