@@ -2,6 +2,24 @@
 @section('title', isset($title) ? $title : 'Login - Youtube Cloning')
 @section('content')
 <div class="container">
+    <div class="row">
+        <div class="col-md-2" x-show="sidebar" x-trap="sidebar" x-transition>
+            @include('includes.sidebar')
+        </div>
+        <div class="col-md-10" id="content">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="height: 600px">
+                <span class="material-icons" style="font-size: 100px">subscriptions</span>
+                <h2 class="fw-semibold text-center mt-4">Jangan lewatkan video baru</h2>
+                <p>Login untuk melihat update dari channel YouTube favorit Anda</p>
+                <a href="auth/google/redirect" class="text-decoration-none d-flex align-items-center text-black-50 gap-2 fw-semibold" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;">
+                    <span class="material-icons">account_circle</span>
+                    {{ __('Login') }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- <div class="container">
     <div class="row justify-content-center my-4">
         <div class="col-md-8">
             <div class="card">
@@ -74,5 +92,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

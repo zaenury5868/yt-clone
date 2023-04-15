@@ -22,7 +22,7 @@ use App\Http\Controllers\ChannelController;
 |
 */
 
-Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect'])->name('redirect');
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
 Route::middleware('minim')->group(function(){ 
@@ -31,13 +31,11 @@ Route::middleware('minim')->group(function(){
         return view('welcome');
     })->name('home');
     
-    Route::prefix('v1')->group(function(){ 
-        Auth::routes();
-    });
+    Auth::routes();
     
     Route::name('video.')->group(function(){ 
         Route::get('/feed/trending/', function() {
-            
+            return view('trending');
         })->name('trending');
         Route::get('/watch', WatchVideo::class)->name('watch');
         Route::get('/results/', [SearchController::class, 'search'])->name('search');

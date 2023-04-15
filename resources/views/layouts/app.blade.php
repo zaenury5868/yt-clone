@@ -82,7 +82,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a href="auth/google/redirect" class="nav-link d-flex align-items-center text-black-50 gap-2 fw-semibold" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;">
+                                    <a href="{{ route('redirect', 'google') }}" class="nav-link d-flex align-items-center text-black-50 gap-2 fw-semibold" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;">
                                         <span class="material-icons">account_circle</span>
                                         {{ __('Login') }}
                                     </a>

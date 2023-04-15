@@ -7,7 +7,7 @@
         <span class="material-icons">local_fire_department</span>
         <span class="text-upperfirst">trending</span>
     </a>
-    <a href="{{ route('video.subscription') }}" class="text-decoration-none @if(Route::current()->getName() == 'video.subscription') sb-active fw-bold text-black @else fw-semibold @endif d-flex mb-3 align-items-center gap-4">
+    <a href="{{ route('video.subscription') }}" class="text-decoration-none @if(Route::current()->getName() == 'video.subscription') sb-active fw-bold text-black @else fw-semibold @endif d-flex align-items-center gap-4">
         <span class="material-icons">subscriptions</span>
         <span class="text-upperfirst">subscription</span>
     </a>
@@ -16,7 +16,7 @@
         <p class="text-upperfirst text-black-50 fw-semibold px-2">
             login untuk memberi tanda suka pada video, memberi komentar, dan subscribe.
         </p>
-        <a href="auth/google/redirect" class="d-flex justify-content-center align-items-center gap-2 fw-semibold text-black-50 text-decoration-none mx-2" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;">
+        <a href="{{ route('redirect', 'google') }}" class="d-flex justify-content-center align-items-center gap-2 fw-semibold text-black-50 text-decoration-none mx-2" style="background-color: #f1f1f1; padding: .5rem 1rem .5rem 1rem; border-radius: 1rem;">
             <span class="material-icons">account_circle</span>
             {{ __('Login') }}
         </a>
@@ -43,7 +43,10 @@
                 </a>
             @endforeach
         @empty
-            <span class="text-danger fw-semibold text-start text-capitalize">tidak ada channel</span>            
+            <a href="{{ route('video.like') }}" class="text-decoration-none @if(Route::current()->getName() == 'video.like') sb-active fw-bold text-black @else fw-semibold @endif d-flex align-items-center gap-4">
+                <span class="material-icons">add_circle</span>
+                <span class="text-upperfirst">jelajahi channel</span>
+            </a>        
         @endforelse
     @endguest
     <hr>
@@ -65,10 +68,10 @@
     </a>
     <hr>
     <p class=" text-upperfirst text-black-50 fw-semibold">
-        website ini merupakan cloningan youtube. kemiripan fungsionalitas pada website ini sebesar 50% termasuk desain dan backend. 
+        youtube ini merupakan cloningan. kemiripan fungsionalitas pada website ini sebesar 30%. 
     </p>
     <p class=" text-upperfirst text-black-50 fw-semibold">
-        youtube-clone ini dibangun menggunakan laravel 10 dan livewire serta support beberapa library dan package.
+        website ini dibangun menggunakan laravel 10 dan livewire.
     </p>
     <p class="text-capitalize text-black-50 fw-semibold">&copy; <script>document.write(new Date().getFullYear())</script> zaenury dhany wibowo</p>
 </div>
