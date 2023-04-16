@@ -79,15 +79,7 @@
         </div>
     </div>
     @push('scripts')
-        <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
-        <script>
-            var player = videojs('yt-video');
-            player.on('timeupdate', function() {
-                if(this.currentTime() > 3) {
-                    this.off('timeupdate')
-                    Livewire.emit('VideoViewed')
-                }
-            })
-        </script>
+    <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+    <script src="./js/custom.js"></script>
     @endpush
 </div>

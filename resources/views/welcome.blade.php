@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-2" x-show="sidebar" x-trap="sidebar" x-transition>
+        <div class="col-md-2 z-50" x-show="sidebar" x-trap="sidebar" x-transition>
             @include('includes.sidebar')
         </div>
         <div class="col-md-10" id="content">

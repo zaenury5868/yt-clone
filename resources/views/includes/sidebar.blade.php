@@ -68,7 +68,7 @@
     </a>
     <hr>
     <p class=" text-upperfirst text-black">
-        youtube cloning ini dibangun menggunakan laravel 10 dan livewire.
+        youtube cloning ini dibangun dengan laravel 10 dan livewire.
     </p>
     <p class="text-capitalize text-black">&copy; <script>document.write(new Date().getFullYear())</script> zaenury dhany wibowo</p>
 </div>
