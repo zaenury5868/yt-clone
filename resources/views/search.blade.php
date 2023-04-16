@@ -34,7 +34,7 @@
                                         </a>
                                     </div>
                                     <div class="row">
-                                        <p class="gray-text font-weight-bold" style="line-height: 0.2px">{{ $video->views}}x ditonton • {{$video->created_at->diffForHumans()}}</p>
+                                        <p class="gray-text font-weight-bold" style="line-height: 0.2px">{{ short_number($video->views) }}x ditonton • {{$video->created_at->diffForHumans()}}</p>
                                     </div>
                                     <div class="row my-3">
                                         <div class="d-flex align-items-center">

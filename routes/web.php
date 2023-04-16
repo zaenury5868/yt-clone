@@ -25,7 +25,7 @@ use App\Http\Controllers\ChannelController;
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect'])->name('redirect');
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
-Route::middleware('minim')->group(function(){ 
+// Route::middleware('minim')->group(function(){ 
     Route::get('/', function () {
         // dd(Auth::user()->channel);
         return view('welcome');
@@ -65,5 +65,5 @@ Route::middleware('minim')->group(function(){
 
 
     
-});
+// });
 

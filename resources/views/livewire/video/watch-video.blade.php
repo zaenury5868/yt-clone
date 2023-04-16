@@ -31,10 +31,8 @@
                             <div class="d-flex align-items-center gap-4">
                                 <img src="{{ $video->channel->picture }}" class="rounded-circle" height="50" width="50">
                                 <a href="{{ route('video.channel.index', ['channel' => $video->channel->name]) }}" class="text-decoration-none">
-                                    <div>
-                                        <h4>{{ $video->channel->name }}</h4>
-                                        <p class="gray-text">{{ short_number($video->channel->subscribers()) }} subscriber</p>
-                                    </div>
+                                    <h4 class="h6" style="margin-bottom: 0;">{{ $video->channel->name }}</h4>
+                                    <span class="gray-text">{{ short_number($video->channel->subscribers()) }} subscriber</span>
                                 </a>
                                 @livewire('channel.channel-info', ['channel' => $video->channel])
                             </div>
@@ -78,25 +76,17 @@
                 @endauth
                 @livewire('comment.all-comments', ['video' => $video])
             </div>
-            {{-- <div class="col-md-4">
-
-            </div> --}}
         </div>
     </div>
     @push('scripts')
         <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
         <script>
-            var player = videojs('yt-video')
+            var player = videojs('yt-video');
             player.on('timeupdate', function() {
                 if(this.currentTime() > 3) {
                     this.off('timeupdate')
                     Livewire.emit('VideoViewed')
                 }
-            })
-
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl)
             })
         </script>
     @endpush

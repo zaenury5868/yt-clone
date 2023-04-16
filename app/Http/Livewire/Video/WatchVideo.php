@@ -20,8 +20,8 @@ class WatchVideo extends Component
     }
 
     public function countView() {
-        $this->video->update([
-            'views' => $this->video->views + 1
-        ]);
+        $update = Video::where('uid', 'like', '%'.$this->v.'%')->first();
+        $update->views = $update->views + 1;
+        $update->save();
     }
 }
