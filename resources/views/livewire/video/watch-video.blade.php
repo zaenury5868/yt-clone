@@ -27,13 +27,14 @@
         
         <!-- Canonical link tag -->
         <link rel="canonical" href="{{ URL::full() }}">
-        <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+        <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/silvermine-videojs-quality-selector@1.1.2/dist/css/quality-selector.css" rel="stylesheet">
     @endpush
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 p-0">
+            <div class=" p-0" id="page">
                 <div class="video-container" wire:ignore>
-                    <video controls autoplay preload="auto" id="yt-video" class="video-js vjs-fill vjs-theme-city vjs-styles=defaults vjs-big-play-centered" data-setup='{}' poster="{{ asset('videos/' . $video->uid . '/' . $video->thumbnail_image) }}">
+                    <video autoplay preload="auto" id="yt-video" class="video-js vjs-fill vjs-theme-city vjs-styles=defaults vjs-big-play-centered" data-setup='{}' poster="{{ asset('videos/' . $video->uid . '/' . $video->thumbnail_image) }}">
                         <source src="{{ asset('videos/' . $video->uid . '/' . $video->processed_file) }}" type="application/x-mpegURL" />
                         <p class="vjs-no-js">
                             to view this video please enable javascript, and consider upgrading to a web browser that 
@@ -106,7 +107,10 @@
         </div>
     </div>
     @push('scripts')
-    <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
-    <script src="./js/custom.js"></script>
+        <script src="https://unpkg.com/video.js@7/dist/video.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-quality-levels/2.0.9/videojs-contrib-quality-levels.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.1/dist/videojs-hls-quality-selector.min.js"></script>
+        <script src="https://cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script>
+        <script src="./js/custom.js"></script>
     @endpush
 </div>
