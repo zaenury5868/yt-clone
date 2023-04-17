@@ -1,5 +1,32 @@
 <div>
+    @section('title', isset($title) ? $title : $video->title . ' - Youtube Cloning')
     @push('custom-css')
+        <!-- Open Graph meta tags for social media -->
+        <meta property="og:title" content="{{ $video->title }} - Youtube Cloning">
+        <meta property="og:description" content="{{ $video->description }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ URL::full() }}">
+        <meta property="og:image" content="{{ asset('videos/' . $video->uid . '/' . $video->thumbnail_image) }}">
+        <meta property="og:image:height" content="300" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:alt" content="{{ $video->description }}">
+        <meta property="og:locale" content="id_ID" />
+        <meta property="og:site_name" content="Youtube Cloning" />
+        <meta property="og:country-name" content="{{ str_replace('_', '-', app()->getLocale()) }}"/>
+        <meta property="article:publisher" content="https://www.facebook.com/zaenury5868" />
+        
+        <!-- Twitter Card meta tags for social media -->
+        <meta property="twitter:domain" content="{{ Request::getHost() }}">
+        <meta property="twitter:site" content="@ZaenuryWibowo">
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="{{ URL::full() }}">
+        <meta property="twitter:title" content="{{ $video->title }} - Youtube Cloning">
+        <meta property="twitter:description" content="{{ $video->description }}">
+        <meta property="twitter:image" content="{{ asset('videos/' . $video->uid . '/' . $video->thumbnail_image) }}">
+        <meta property="twitter:label1" content="Official Youtube Cloning" />
+        
+        <!-- Canonical link tag -->
+        <link rel="canonical" href="{{ URL::full() }}">
         <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
     @endpush
     <div class="container-fluid">
